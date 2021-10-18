@@ -1,0 +1,3 @@
+D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/cmake-build-debug/CMakeFiles/Time_series_data.dir
+D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/cmake-build-debug/CMakeFiles/rebuild_cache.dir
