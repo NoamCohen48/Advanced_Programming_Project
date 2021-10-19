@@ -6,26 +6,27 @@
 
 #include "anomaly_detection_util.h"
 #include <cmath>
+#include "stdexcept"
 
 
 /**
  * The function calculate the average of group of numbers.
  * @param x, size. the numbers group and the size of the group.
  * @return type Float, the average.
- * @throws nullptr, wrongSize.
+ * @throws invalid_argument.
  **/
 float avr(float *x, float size) {
 
     //Check if the size is 0.
     if (size <= 0) {
 
-        throw "size <= 0";
+        throw std::invalid_argument("size <= 0");
     }
 
     //Check if null pointer.
     if (x == nullptr) {
 
-        throw "null pointer";
+        throw std::invalid_argument("null pointer");
     }
 
     float sum = 0;
@@ -40,20 +41,20 @@ float avr(float *x, float size) {
  * The function returns the variance of X and Y.
  * @param x, size. the numbers group and "size" the size of the group.
  * @return type Float, the variance of X and Y.
- * @throws nullptr, wrongSize.
+ * @throws invalid_argument.
  **/
 float var(float *x, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
 
-        throw "size <= 0";
+        throw std::invalid_argument("size <= 0");
     }
 
     //Check if null pointer.
     if (x == nullptr) {
 
-        throw "null pointer";
+        throw std::invalid_argument("null pointer");
     }
 
     float newSize = size;
@@ -73,20 +74,20 @@ float var(float *x, int size) {
  * The function returns the covariance of X and Y, 𝑐𝑜𝑣(𝑋,𝑌)=𝐸(𝑋𝑌)−𝐸(𝑋)𝐸(𝑌)..
  * @param x, y, size. Two numbers group and the size of the groups.
  * @return type Float, the covariance of X and Y.
- * @throws nullptr, wrongSize.
+ * @throws invalid_argument.
  **/
 float cov(float *x, float *y, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
 
-        throw "size <= 0";
+        throw std::invalid_argument("size <= 0");
     }
 
     //Check if null pointer.
     if (x == nullptr || y == nullptr) {
 
-        throw "null pointer";
+        throw std::invalid_argument("null pointer");
     }
 
     float *newAry = new float[size];
@@ -116,20 +117,20 @@ float cov(float *x, float *y, int size) {
  * The function returns the Pearson correlation coefficient of X and Y,Pearson = 𝑐𝑜𝑣(𝑋,𝑌)/𝜎𝑥𝜎𝑦.
  * @param x, y, size. Two numbers group, and the size of the groups.
  * @return type Float, the Pearson correlation coefficient of X and Y.
- * @throws nullptr, wrongSize.
+ * @throws invalid_argument.
  **/
 float pearson(float *x, float *y, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
 
-        throw "size <= 0";
+        throw std::invalid_argument("size <= 0");
     }
 
     //Check if null pointer.
     if (x == nullptr || y == nullptr) {
 
-        throw "null pointer";
+        throw std::invalid_argument("null pointer");
     }
 
     float sigmaX = sqrt(var(x, size));
@@ -142,20 +143,20 @@ float pearson(float *x, float *y, int size) {
  * The function performs a linear regression and return s the line equation.
  * @param points, size. The group of points and the size of the group.
  * @return type Float, the line equation.
- * @throws nullptr, wrongSize.
+ * @throws invalid_argument.
  **/
 Line linear_reg(Point **points, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
 
-        throw "size <= 0";
+        throw std::invalid_argument("size <= 0");
     }
 
     //Check if null pointer.
     if (points == nullptr) {
 
-        throw "null pointer";
+        throw std::invalid_argument("null pointer");
     }
 
     float *x = new float[size];

@@ -13,14 +13,10 @@ iostream
 -
 anomaly_detection_util.h
 D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/anomaly_detection_util.h
+stdexcept
+D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/stdexcept
 
 D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/MainTest.h
-
-D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/anomaly_detection_util.cpp
-anomaly_detection_util.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/anomaly_detection_util.h
-cmath
--
 
 D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/anomaly_detection_util.h
 

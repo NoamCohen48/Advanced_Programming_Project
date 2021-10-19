@@ -5,6 +5,7 @@
 #include "MainTest.h"
 #include <iostream>
 #include "anomaly_detection_util.h"
+#include "stdexcept"
 
 using namespace std;
 
@@ -22,7 +23,16 @@ int main(){
     for(int i=0;i<N;i++)
         ps[i]=new Point(x[i],y[i]);
 
-    Line l=linear_reg(ps,N);
+    Line l;
+    try {
+        l = linear_reg(ps, 0);
+    }
+    catch(std::invalid_argument& e) {
+        std::cout << e.what() << std::endl;
+    }
+    catch(std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
     Point p(4,8);
 
     float v[]={var(x,N),cov(x,y,N),pearson(x,y,N),l.a,l.b,l.f(4),dev(p,l)};
