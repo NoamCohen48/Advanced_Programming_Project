@@ -1,7 +1,7 @@
 /*
  * Created by:
  * Shaked Cohen, Shakedc159@gmail.com.
- * Noam Cohen,
+ * Noam Cohen, cohennoam48@gmail.com.
 */
 
 #include "anomaly_detection_util.h"
@@ -59,7 +59,7 @@ float var(float *x, int size) {
 
     float newSize = size;
     float sum = 0;
-    float pi = avr(x, newSize);
+    float mu = avr(x, newSize);
 
     //Calculate sum.
     for (int i = 0; i < size; i++) {
@@ -67,7 +67,7 @@ float var(float *x, int size) {
         sum += pow(x[i], 2);
     }
 
-    return (sum / newSize) - pow(pi, 2);
+    return (sum / newSize) - pow(mu, 2);
 }
 
 /**
