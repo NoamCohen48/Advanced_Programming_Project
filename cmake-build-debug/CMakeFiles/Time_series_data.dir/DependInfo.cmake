@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/MainTest.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/cmake-build-debug/CMakeFiles/Time_series_data.dir/MainTest.cpp.obj"
-  "D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/anomaly_detection_util.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Time_series_data/cmake-build-debug/CMakeFiles/Time_series_data.dir/anomaly_detection_util.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTest.cpp" "D:/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Time_series_data.dir/MainTest.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" "D:/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Time_series_data.dir/anomaly_detection_util.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "MSVC")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

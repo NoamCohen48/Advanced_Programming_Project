@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Time_series_data.dir/anomaly_detection_util.cpp.obj"
   "Time_series_data.exe"
   "Time_series_data.exe.manifest"
-  "Time_series_data.lib"
   "Time_series_data.pdb"
+  "libTime_series_data.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
