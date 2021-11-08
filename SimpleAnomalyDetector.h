@@ -66,7 +66,7 @@ public:
      * @param ts the table to detect false points on.
      * @return a vector of all the false points (AnomalyReport).
      */
-    virtual vector<AnomalyReport> detect(const TimeSeries &ts) const;
+    virtual vector<AnomalyReport> detect(const TimeSeries &ts);
 
     /**
      * @return The correlated feature

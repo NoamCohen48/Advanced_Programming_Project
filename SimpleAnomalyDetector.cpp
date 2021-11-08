@@ -103,7 +103,7 @@ void SimpleAnomalyDetector::addCF(const string &firstColumn, const string &secon
  * @param ts the table to detect false points on.
  * @return a vector of all the false points (AnomalyReport).
  */
-vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) const {
+vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
     vector<AnomalyReport> result;
 
     // For every correlated Feature
