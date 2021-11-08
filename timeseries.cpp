@@ -1,6 +1,10 @@
 #include "timeseries.h"
 
-
+/**
+ * read a file and fill a table with the info.
+ * @param CSVfileName the file name.
+ * @return a table of the csv file.
+ */
 std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(const std::string &CSVfileName) {
     // Create a vector of <string, int vector> pairs to store the result
     std::vector<std::pair<std::string, std::vector<float>>> result;
@@ -59,6 +63,11 @@ std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(cons
     return std::move(result);
 }
 
+/**
+ * get a column in the table.
+ * @param columnName the column title - name.
+ * @return the column as vector.
+ */
 const std::vector<float> &TimeSeries::getColumn(const std::string &columnName) const {
     // searching for the column
     for (const std::pair<std::string, std::vector<float>> &pair: table) {
@@ -69,24 +78,39 @@ const std::vector<float> &TimeSeries::getColumn(const std::string &columnName) c
     throw std::runtime_error("column name wasn't found");
 }
 
-int TimeSeries::getValue(std::string &columnName, int row) const {
-    std::vector<float> column = getColumn(columnName);
-
-    return column[row];
-}
-
+/**
+ * get the amount of of columns.
+ * @return unsigned long long that represent the amount of of columns.
+ */
 unsigned long long int TimeSeries::getColumnsSize() const {
     return table.size();
 }
 
+/**
+ * get the amount of of rows.
+ * @return unsigned long long that represent the amount of of rows.
+ */
 unsigned long long int TimeSeries::getRowsSize() const {
+    if (getColumnsSize() <= 0) {
+        return 0;
+    }
     return table[0].second.size();
 }
 
+/**
+ * get a column in the table.
+ * @param id the column number.
+ * @return the column as vector.
+ */
 const std::vector<float> &TimeSeries::getColumn(int id) const {
     return table[id].second;
 }
 
+/**
+ * get the title of a column.
+ * @param id the column id - number.
+ * @return the name of the column.
+ */
 std::string TimeSeries::getColumnName(int id) const {
     return table[id].first;
 }

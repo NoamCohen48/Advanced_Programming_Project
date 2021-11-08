@@ -8,9 +8,9 @@
 
 /**
  * The function calculate the average of group of numbers.
- * @param x, size. the numbers group and the size of the group.
+ * @param x, size. the numbers as vector and the size.
  * @return type Float, the average.
- * @throws invalid_argument.
+ * @throws invalid_argument if size less then 1.
  **/
 float avr(const std::vector<float> &x, int size) {
 
@@ -20,11 +20,13 @@ float avr(const std::vector<float> &x, int size) {
         throw std::invalid_argument("size <= 0");
     }
 
+    // calculating sum
     float sum = 0;
     for (int i = 0; i < size; i++) {
 
         sum += x[i];
     }
+
 
     return sum / (float) size;
 }
@@ -153,6 +155,12 @@ Line linear_reg(Point **points, int size) {
     return Line(a, b);
 }
 
+/**
+ * The function performs a linear regression and return s the line equation.
+ * @param x , y two vectors, one is the x value and the other is the y value of the points.
+ * @param size the size of the vectors.
+ * @return the line regression.
+ */
 Line linear_reg(const std::vector<float> &x, const std::vector<float> &y, int size) {
 
     //Check if the size is 0.

@@ -9,6 +9,10 @@ SimpleAnomalyDetector::~SimpleAnomalyDetector() {
 
 }
 
+/**
+ * train the model on a given table.
+ * @param ts TimeSeries on which we learn
+ */
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
     int columns = ts.getColumnsSize();
     int rows = ts.getRowsSize();
@@ -51,13 +55,20 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
     }
 }
 
+/**
+ * calculate max deviation of a given 2 columns which represent x and y values and a line.
+ * @param firstVec, secondVec x value and y value of the points as vec.
+ * @param size the size of the vectors.
+ * @param regLine the line to calculate max deviation.
+ * @return the max deviation.
+ */
 float
-SimpleAnomalyDetector::calculateDeviation(const std::vector<float> &firstArray, const std::vector<float> &secondArray,
+SimpleAnomalyDetector::calculateDeviation(const std::vector<float> &firstVec, const std::vector<float> &secondVec,
                                           int size, const Line &regLine) {
     // calc max dev
     float maxDev = 0;
     for (int i = 0; i < size; ++i) {
-        Point point(firstArray[i], secondArray[i]);
+        Point point(firstVec[i], secondVec[i]);
         float curDev = dev(point, regLine);
         dev(point, regLine);
         if (curDev >= maxDev) {
@@ -67,6 +78,13 @@ SimpleAnomalyDetector::calculateDeviation(const std::vector<float> &firstArray, 
     return maxDev;
 }
 
+/**
+ * add correlated feature to the cf vector.
+ * @param first, second the columns name as string.
+ * @param pearson the correlation of the two columns.
+ * @param regLine the regression line.
+ * @param maxDev the max deviation of the two columns.
+ */
 void
 SimpleAnomalyDetector::addCF(const string &first, const string &second, float pearson, Line regLine, float maxDev) {
     correlatedFeatures correlatedFeature;
@@ -78,6 +96,11 @@ SimpleAnomalyDetector::addCF(const string &first, const string &second, float pe
     cf.push_back(correlatedFeature);
 }
 
+/**
+ * detect false points on a given table.
+ * @param ts the table to detect false points on.
+ * @return a vector of all the false points (AnomalyReport).
+ */
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) const {
     vector<AnomalyReport> result;
 

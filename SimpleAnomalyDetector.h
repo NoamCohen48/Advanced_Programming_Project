@@ -23,7 +23,7 @@ class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
 
 private:
     static float
-    calculateDeviation(const std::vector<float> &firstArray, const std::vector<float> &secondArray, int size,
+    calculateDeviation(const std::vector<float> &firstVec, const std::vector<float> &secondVec, int size,
                        const Line& regLine);
 
     void addCF(const string &first, const string &second, float pearson, Line regLine, float maxDev);

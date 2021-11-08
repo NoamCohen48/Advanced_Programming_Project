@@ -31,8 +31,6 @@ public:
 
     const std::vector<float> &getColumn(const std::string &columnName) const;
 
-    int getValue(std::string &columnName, int row) const;
-
     std::string getColumnName(int id) const;
 
     unsigned long long int getColumnsSize() const;
