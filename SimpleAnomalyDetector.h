@@ -26,7 +26,7 @@ private:
     calculateDeviation(const std::vector<float> &firstVec, const std::vector<float> &secondVec, int size,
                        const Line& regLine);
 
-    void addCF(const string &first, const string &second, float pearson, Line regLine, float maxDev);
+    void addCF(const string &firstColumn, const string &secondColumn, float pearson, Line regLine, float maxDev);
 
 public:
     SimpleAnomalyDetector();
