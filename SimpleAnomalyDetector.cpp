@@ -21,8 +21,8 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
     for (int firstId = 0; firstId < columns; ++firstId) {
         // init to the first
         float maxPearson = 0;
-        const std::vector<float> &firstVec = ts.getColumn(firstId);
         int secondIdMax = -1;
+        const std::vector<float> &firstVec = ts.getColumn(firstId);
 
         for (int secondId = firstId + 1; secondId < columns; ++secondId) {
             // init to the second
@@ -70,7 +70,7 @@ SimpleAnomalyDetector::calculateDeviation(const std::vector<float> &firstVec, co
     for (int i = 0; i < size; ++i) {
         Point point(firstVec[i], secondVec[i]);
         float curDev = dev(point, regLine);
-        dev(point, regLine);
+
         if (curDev >= maxDev) {
             maxDev = curDev;
         }

@@ -17,7 +17,7 @@ private:
     std::string CSVfileName;
     std::vector<std::pair<std::string, std::vector<float>>> table;
 
-    static std::vector<std::pair<std::string, std::vector<float>>> readCsv(const std::string &CSVfileName);
+    static std::vector<std::pair<std::string, std::vector<float>>> readCsv(const std::string &fileName);
 
 public:
 

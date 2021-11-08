@@ -1,55 +1,57 @@
 #include "timeseries.h"
 
 /**
- * read a file and fill a table with the info.
- * @param CSVfileName the file name.
+ * Read a CSV file and fill a table with the info.
+ * @param fileName the file name.
  * @return a table of the csv file.
  */
-std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(const std::string &CSVfileName) {
-    // Create a vector of <string, int vector> pairs to store the result
+std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(const std::string &fileName) {
+
+    // Create a vector of pairs to store the results
     std::vector<std::pair<std::string, std::vector<float>>> result;
 
-    // Create an input filestream
-    std::ifstream myFile(CSVfileName);
+    // Open input stream
+    std::ifstream myFile(fileName);
 
-    // Make sure the file is open
+    // Check that the open succeed
     if (!myFile.is_open()) throw std::runtime_error("Could not open file");
 
-    // Helper vars
-    std::string line, colname;
-    float val;
+    std::string line, colmname;
 
-    // Read the column names
+    // IF there is column
     if (myFile.good()) {
-        // Extract the first line in the file
+
+        // Get the first line in the file
         std::getline(myFile, line);
 
-        // Create a stringstream from line
+        // Create a stringstream
         std::stringstream ss(line);
 
-        // Extract each column name
-        while (std::getline(ss, colname, ',')) {
+        // Get all the columns name
+        while (std::getline(ss, colmname, ',')) {
 
-            // Initialize and add <colname, int vector> pairs to result
-            result.push_back({colname, std::vector<float>{}});
+            // Initialize and add the pairs to result
+            result.push_back({colmname, std::vector<float>{}});
         }
     }
 
-    // Read data, line by line
+    // Read line
     while (std::getline(myFile, line)) {
+
         // Create a stringstream of the current line
         std::stringstream ss(line);
 
-        // Keep track of the current column index
+        // Get the current column index
         int colIdx = 0;
+        float val;
 
-        // Extract each integer
+        // Get the data
         while (ss >> val) {
 
-            // Add the current integer to the 'colIdx' column's values vector
+            // Add the current data to the column's values vector
             result.at(colIdx).second.push_back(val);
 
-            // If the next token is a comma, ignore it and move on
+            // If the next token is a comma, ignore it and move on (empty line)
             if (ss.peek() == ',') ss.ignore();
 
             // Increment the column index
@@ -57,20 +59,23 @@ std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(cons
         }
     }
 
-    // Close file
+    // Close the file
     myFile.close();
 
     return std::move(result);
 }
 
 /**
- * get a column in the table.
+ * Get a column from table.
  * @param columnName the column title - name.
  * @return the column as vector.
  */
 const std::vector<float> &TimeSeries::getColumn(const std::string &columnName) const {
-    // searching for the column
-    for (const std::pair<std::string, std::vector<float>> &pair: table) {
+
+    // Run throw all the tables
+    for (const auto &pair: table) {
+
+        // Check if this is the column we need
         if (pair.first == columnName) {
             return pair.second;
         }
@@ -79,39 +84,55 @@ const std::vector<float> &TimeSeries::getColumn(const std::string &columnName) c
 }
 
 /**
- * get the amount of of columns.
- * @return unsigned long long that represent the amount of of columns.
+ * Get the amount of columns.
+ * @return unsigned long long that represent the amount of columns.
  */
 unsigned long long int TimeSeries::getColumnsSize() const {
     return table.size();
 }
 
 /**
- * get the amount of of rows.
- * @return unsigned long long that represent the amount of of rows.
+ * Get the amount of rows.
+ * @return unsigned long long that represent the amount of rows.
  */
 unsigned long long int TimeSeries::getRowsSize() const {
+
+    // Check if there is no column
     if (getColumnsSize() <= 0) {
         return 0;
     }
+
+    // Else return the first column size (all the columns have the same size)
     return table[0].second.size();
 }
 
 /**
- * get a column in the table.
+ * Get a column from table by ID.
  * @param id the column number.
  * @return the column as vector.
  */
 const std::vector<float> &TimeSeries::getColumn(int id) const {
+
+    // Check if there is no id
+    if (id < 0 || getColumnsSize() <= id) {
+
+        throw std::runtime_error("Id is incorrect");
+    }
     return table[id].second;
 }
 
 /**
- * get the title of a column.
+ * Get the title of a column by ID.
  * @param id the column id - number.
  * @return the name of the column.
  */
 std::string TimeSeries::getColumnName(int id) const {
+
+    // Check if there is no id
+    if (id < 0 || getColumnsSize() <= id) {
+
+        throw std::runtime_error("Id is incorrect");
+    }
     return table[id].first;
 }
 

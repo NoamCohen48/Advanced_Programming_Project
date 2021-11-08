@@ -5,8 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Project2.dir/timeseries.cpp.obj"
   "Project2.exe"
   "Project2.exe.manifest"
+  "Project2.lib"
   "Project2.pdb"
-  "libProject2.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
