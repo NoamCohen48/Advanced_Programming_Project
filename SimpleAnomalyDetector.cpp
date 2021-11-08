@@ -1,10 +1,6 @@
 
 #include "SimpleAnomalyDetector.h"
 
-SimpleAnomalyDetector::SimpleAnomalyDetector() = default;
-
-SimpleAnomalyDetector::~SimpleAnomalyDetector() = default;
-
 /**
  * Train the model on a given table.
  * @param ts TimeSeries on which we learn
