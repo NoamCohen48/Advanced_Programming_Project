@@ -6,25 +6,25 @@
 
 #IncludeRegexTransform: 
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/AnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/AnomalyDetector.h
 string
 -
 vector
 -
 timeseries.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.h
 math.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/math.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/math.h
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/MainTrain.cpp
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp
 iostream
 -
 vector
 -
 AnomalyDetector.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/AnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/AnomalyDetector.h
 SimpleAnomalyDetector.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.h
 fstream
 -
 stdlib.h
@@ -34,15 +34,15 @@ time.h
 math.h
 -
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.cpp
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp
 SimpleAnomalyDetector.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.h
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.h
 anomaly_detection_util.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h
 AnomalyDetector.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/AnomalyDetector.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/AnomalyDetector.h
 vector
 -
 algorithm
@@ -52,23 +52,15 @@ string.h
 math.h
 -
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.cpp
-anomaly_detection_util.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.h
-
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h
 cmath
 -
 stdexcept
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/stdexcept
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/stdexcept
 vector
 -
 
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.cpp
-timeseries.h
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.h
-
-D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.h
+/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.h
 vector
 -
 string

@@ -16,7 +16,7 @@ std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(cons
     // Check that the open succeed
     if (!myFile.is_open()) throw std::runtime_error("Could not open file");
 
-    std::string line, colmname;
+    std::string line, columnName;
 
     // IF there is column
     if (myFile.good()) {
@@ -25,13 +25,13 @@ std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(cons
         std::getline(myFile, line);
 
         // Create a stringstream
-        std::stringstream ss(line);
+        std::stringstream stringStream(line);
 
         // Get all the columns name
-        while (std::getline(ss, colmname, ',')) {
+        while (std::getline(stringStream, columnName, ',')) {
 
             // Initialize and add the pairs to result
-            result.push_back({colmname, std::vector<float>{}});
+            result.emplace_back(columnName, std::vector<float>{});
         }
     }
 
@@ -39,23 +39,23 @@ std::vector<std::pair<std::string, std::vector<float>>> TimeSeries::readCsv(cons
     while (std::getline(myFile, line)) {
 
         // Create a stringstream of the current line
-        std::stringstream ss(line);
+        std::stringstream stringStream(line);
 
         // Get the current column index
-        int colIdx = 0;
+        int columnId = 0;
         float val;
 
         // Get the data
-        while (ss >> val) {
+        while (stringStream >> val) {
 
             // Add the current data to the column's values vector
-            result.at(colIdx).second.push_back(val);
+            result.at(columnId).second.push_back(val);
 
-            // If the next token is a comma, ignore it and move on (empty line)
-            if (ss.peek() == ',') ss.ignore();
+            // If the next token is a comma, ignore it and move on (empty tile)
+            if (stringStream.peek() == ',') stringStream.ignore();
 
             // Increment the column index
-            colIdx++;
+            columnId++;
         }
     }
 
