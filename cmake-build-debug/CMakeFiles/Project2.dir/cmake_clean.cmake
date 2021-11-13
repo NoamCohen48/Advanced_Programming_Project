@@ -4,8 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o"
   "CMakeFiles/Project2.dir/minCircle.cpp.o"
   "CMakeFiles/Project2.dir/timeseries.cpp.o"
-  "Project2"
+  "Project2.exe"
   "Project2.pdb"
+  "libProject2.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

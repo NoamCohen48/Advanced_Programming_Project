@@ -1,3 +1,4 @@
-ToolSet: Ubuntu 20.04.3 LTS (local)Options: 
+ToolSet: 3.3.0 (local)@C:\cygwin64
+Options: 
 
 Options:

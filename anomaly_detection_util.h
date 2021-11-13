@@ -37,6 +37,10 @@ public:
     float x, y;
 
     Point(float x, float y) : x(x), y(y) {}
+
+    double dist(const Point &other) const {
+        return sqrt(pow(x - other.x, 2) + pow(y - other.y, 2));
+    }
 };
 
 // performs a linear regression and return s the line equation
@@ -48,7 +52,7 @@ Line linear_reg(const std::vector<float> &x, const std::vector<float> &y, int si
 float dev(Point p, Point **points, int size);
 
 // returns the deviation between point p and the line
-float dev(Point p, const Line& l);
+float dev(Point p, const Line &l);
 
 
 #endif //PROJECT1_ANOMALY_DETECTION_UTIL_H
