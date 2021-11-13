@@ -97,6 +97,12 @@
 		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h">
 			<Option target="Project2"/>
 		</Unit>
+		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.h">
+			<Option target="Project2"/>
+		</Unit>
 		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp">
 			<Option target="Project2"/>
 		</Unit>

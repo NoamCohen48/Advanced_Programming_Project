@@ -7,4 +7,5 @@ add_executable(Project2
         anomaly_detection_util.cpp anomaly_detection_util.h
         SimpleAnomalyDetector.cpp SimpleAnomalyDetector.h
         timeseries.cpp timeseries.h
-        MainTrain.cpp)
+        MainTrain.cpp
+        minCircle.cpp minCircle.h)
