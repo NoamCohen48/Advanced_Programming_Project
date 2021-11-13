@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /opt/cmake-3.20.6-linux-x86_64/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /opt/cmake-3.20.6-linux-x86_64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2"
+CMAKE_SOURCE_DIR = "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug"
+CMAKE_BINARY_DIR = "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Pr
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/cmake-3.20.6-linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -77,8 +77,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/cmake-3.20.6-linux-x86_64/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

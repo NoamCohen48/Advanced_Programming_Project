@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /opt/cmake-3.20.6-linux-x86_64/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/Noam/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /opt/cmake-3.20.6-linux-x86_64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2"
+CMAKE_SOURCE_DIR = "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug"
+CMAKE_BINARY_DIR = "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Project2.dir/depend.make
@@ -68,55 +68,55 @@ include CMakeFiles/Project2.dir/flags.make
 
 CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o: CMakeFiles/Project2.dir/flags.make
 CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o: ../anomaly_detection_util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o -c "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o -c "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp"
 
 CMakeFiles/Project2.dir/anomaly_detection_util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project2.dir/anomaly_detection_util.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" > CMakeFiles/Project2.dir/anomaly_detection_util.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" > CMakeFiles/Project2.dir/anomaly_detection_util.cpp.i
 
 CMakeFiles/Project2.dir/anomaly_detection_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project2.dir/anomaly_detection_util.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" -o CMakeFiles/Project2.dir/anomaly_detection_util.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" -o CMakeFiles/Project2.dir/anomaly_detection_util.cpp.s
 
 CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o: CMakeFiles/Project2.dir/flags.make
 CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o: ../SimpleAnomalyDetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o -c "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o -c "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp"
 
 CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" > CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" > CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.i
 
 CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" -o CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" -o CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.s
 
 CMakeFiles/Project2.dir/timeseries.cpp.o: CMakeFiles/Project2.dir/flags.make
 CMakeFiles/Project2.dir/timeseries.cpp.o: ../timeseries.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Project2.dir/timeseries.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/timeseries.cpp.o -c "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Project2.dir/timeseries.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/timeseries.cpp.o -c "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp"
 
 CMakeFiles/Project2.dir/timeseries.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project2.dir/timeseries.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp" > CMakeFiles/Project2.dir/timeseries.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp" > CMakeFiles/Project2.dir/timeseries.cpp.i
 
 CMakeFiles/Project2.dir/timeseries.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project2.dir/timeseries.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp" -o CMakeFiles/Project2.dir/timeseries.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp" -o CMakeFiles/Project2.dir/timeseries.cpp.s
 
 CMakeFiles/Project2.dir/MainTrain.cpp.o: CMakeFiles/Project2.dir/flags.make
 CMakeFiles/Project2.dir/MainTrain.cpp.o: ../MainTrain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Project2.dir/MainTrain.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/MainTrain.cpp.o -c "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Project2.dir/MainTrain.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project2.dir/MainTrain.cpp.o -c "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp"
 
 CMakeFiles/Project2.dir/MainTrain.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project2.dir/MainTrain.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" > CMakeFiles/Project2.dir/MainTrain.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" > CMakeFiles/Project2.dir/MainTrain.cpp.i
 
 CMakeFiles/Project2.dir/MainTrain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project2.dir/MainTrain.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" -o CMakeFiles/Project2.dir/MainTrain.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" -o CMakeFiles/Project2.dir/MainTrain.cpp.s
 
 # Object files for target Project2
 Project2_OBJECTS = \
@@ -128,17 +128,17 @@ Project2_OBJECTS = \
 # External object files for target Project2
 Project2_EXTERNAL_OBJECTS =
 
-Project2.exe: CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o
-Project2.exe: CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o
-Project2.exe: CMakeFiles/Project2.dir/timeseries.cpp.o
-Project2.exe: CMakeFiles/Project2.dir/MainTrain.cpp.o
-Project2.exe: CMakeFiles/Project2.dir/build.make
-Project2.exe: CMakeFiles/Project2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Project2.exe"
+Project2: CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o
+Project2: CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o
+Project2: CMakeFiles/Project2.dir/timeseries.cpp.o
+Project2: CMakeFiles/Project2.dir/MainTrain.cpp.o
+Project2: CMakeFiles/Project2.dir/build.make
+Project2: CMakeFiles/Project2.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Project2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Project2.dir/build: Project2.exe
+CMakeFiles/Project2.dir/build: Project2
 .PHONY : CMakeFiles/Project2.dir/build
 
 CMakeFiles/Project2.dir/clean:
@@ -146,6 +146,6 @@ CMakeFiles/Project2.dir/clean:
 .PHONY : CMakeFiles/Project2.dir/clean
 
 CMakeFiles/Project2.dir/depend:
-	cd "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug" "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Project2.dir/depend
 
