@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/MainTrain.cpp.o"
-  "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o"
-  "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/anomaly_detection_util.cpp.o"
-  "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.cpp" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/minCircle.cpp.o"
-  "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp" "/cygdrive/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-debug/CMakeFiles/Project2.dir/timeseries.cpp.o"
+  "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/MainTrain.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug/CMakeFiles/Project2.dir/MainTrain.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug/CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug/CMakeFiles/Project2.dir/anomaly_detection_util.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/minCircle.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug/CMakeFiles/Project2.dir/minCircle.cpp.obj"
+  "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.cpp" "D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug/CMakeFiles/Project2.dir/timeseries.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
