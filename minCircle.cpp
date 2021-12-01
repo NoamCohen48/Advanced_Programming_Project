@@ -1,16 +1,10 @@
 #include "minCircle.h"
 
-/**
- *
- * @param p
- * @param d
- * @return
- */
 bool isInside(const Point &p, const Circle &d) {
     return p.dist(d.center) <= d.radius;
 }
 
-bool isValid(Circle circle, const vector<Point *>& boundary) {
+bool isValid(Circle circle, const vector<Point *> &boundary) {
     // going throughout all points to check if inside circle
     for (Point *point: boundary) {
         if (!isInside(*point, circle)) {
@@ -46,6 +40,11 @@ Circle circleFrom2Points(const Point &p1, const Point &p2) {
     return Circle(*center, (p1.dist(p2) / 2.0));
 }
 
+/**
+ * return a minimum enclosing circle for the base case - 3, 2, 1 or 0 boundary points.
+ * @param boundary the points on the boundary.
+ * @return minimum enclosing circle.
+ */
 Circle baseMinCircle(vector<Point *> boundary) {
     // if boundary is 0
     if (boundary.empty()) {
@@ -81,7 +80,13 @@ Circle baseMinCircle(vector<Point *> boundary) {
     return circleFrom3Points(*boundary[0], *boundary[1], *boundary[2]);
 }
 
-
+/**
+ * recursive function that find a minimum enclosing circle.
+ * @param points a points set.
+ * @param boundary the points on the boundary of the circle.
+ * @param n the size of the set
+ * @return a minimum enclosing circle.
+ */
 Circle recursiveFindMinCircle(Point **points, vector<Point *> boundary, size_t n) {
     // if boundary is 3 or n is 0 then we can know what is the circle
     if (boundary.size() == 3 || n == 0) {
@@ -104,9 +109,17 @@ Circle recursiveFindMinCircle(Point **points, vector<Point *> boundary, size_t n
     return recursiveFindMinCircle(points, boundary, n - 1);
 }
 
+/**
+ * find the minimum enclosing circle of a given points set.
+ * @param points the points set.
+ * @param size the size of the set
+ * @return a Circle.
+ */
 Circle findMinCircle(Point **points, size_t size) {
+    // create helper vector
     vector<Point *> boundary;
     boundary.reserve(3);
+    // call the recursive function
     return recursiveFindMinCircle(points, boundary, size);
 }
 
