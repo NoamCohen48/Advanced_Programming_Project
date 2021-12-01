@@ -1,9 +1,21 @@
 #include "minCircle.h"
 
-bool isInside(const Point &p, const Circle &d) {
-    return p.dist(d.center) <= d.radius;
+/**
+ * The function check if point within the circle.
+ * @param circle circle.
+ * @param p point.
+ * @return True the point in the circle, false else.
+ */
+bool isInside(const Point &p, const Circle &circle) {
+    return p.dist(circle.center) <= circle.radius;
 }
 
+/**
+ * The function check if all the received point within the circle.
+ * @param circle circle.
+ * @param boundary array of points.
+ * @return True if all the point in the circle, false else.
+ */
 bool isValid(Circle circle, const vector<Point *> &boundary) {
     // going throughout all points to check if inside circle
     for (Point *point: boundary) {
@@ -14,24 +26,33 @@ bool isValid(Circle circle, const vector<Point *> &boundary) {
     return true;
 }
 
-// Function to return a unique circle that
-// intersects three points
-Circle circleFrom3Points(const Point &A, const Point &B, const Point &C) {
-    double newB = (B.x - A.x) * (B.x - A.x) + (B.y - A.y) * (B.y - A.y);
-    double newC = (C.x - A.x) * (C.x - A.x) + (C.y - A.y) * (C.y - A.y);
-    double newD = (B.x - A.x) * (C.y - A.y) - (B.y - A.y) * (C.x - A.x);
+/**
+ * return a circle from tree points.
+ * @param p1 first point.
+ * @param p2 second point.
+ * @param p1 second point.
+ * @return circle from tree points.
+ */
+Circle circleFrom3Points(const Point &p1, const Point &p2, const Point &p3) {
+    double newB = (p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y);
+    double newC = (p3.x - p1.x) * (p3.x - p1.x) + (p3.y - p1.y) * (p3.y - p1.y);
+    double newD = (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
 
-    Point *center = new Point(((((C.y - A.y) * newB - (B.y - A.y) * newC) / (2 * newD))),
-                              (((B.x - A.x) * newC - (C.x - A.x) * newB) / (2 * newD)));
+    Point *center = new Point(((((p3.y - p1.y) * newB - (p2.y - p1.y) * newC) / (2 * newD))),
+                              (((p2.x - p1.x) * newC - (p3.x - p1.x) * newB) / (2 * newD)));
 
-    center->x += A.x;
-    center->y += A.y;
+    center->x += p1.x;
+    center->y += p1.y;
 
-    return Circle(*center, center->dist(A));
+    return Circle(*center, center->dist(p1));
 }
 
-// Function to return the smallest circle
-// that intersects 2 points
+/**
+ * return a circle from two points.
+ * @param p1 first point.
+ * @param p2 second point.
+ * @return circle from two points.
+ */
 Circle circleFrom2Points(const Point &p1, const Point &p2) {
     // Set the center to be the midpoint of A and p2
     Point *center = new Point(((p1.x + p2.x) / 2.0), ((p1.y + p2.y) / 2.0));
