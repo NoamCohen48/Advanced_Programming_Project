@@ -1,11 +1,16 @@
 #include "minCircle.h"
 
-
+/**
+ *
+ * @param p
+ * @param d
+ * @return
+ */
 bool isInside(const Point &p, const Circle &d) {
     return p.dist(d.center) <= d.radius;
 }
 
-bool isValid(Circle circle, vector<Point *> boundary) {
+bool isValid(Circle circle, const vector<Point *>& boundary) {
     // going throughout all points to check if inside circle
     for (Point *point: boundary) {
         if (!isInside(*point, circle)) {
@@ -77,7 +82,7 @@ Circle baseMinCircle(vector<Point *> boundary) {
 }
 
 
-Circle recursiveFindMinCircle(Point **points, vector<Point *> &boundary, size_t n) {
+Circle recursiveFindMinCircle(Point **points, vector<Point *> boundary, size_t n) {
     // if boundary is 3 or n is 0 then we can know what is the circle
     if (boundary.size() == 3 || n == 0) {
         return baseMinCircle(boundary);
