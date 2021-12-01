@@ -1,5 +1,28 @@
 #include "minCircle.h"
 
+
+bool isInside(const Point &p, const Circle &d) {
+    return p.dist(d.center) <= d.radius;
+}
+
+Circle circleFrom2Points(Point *p1, Point *p2) {
+
+}
+
+bool isValid(Circle circle, vector<Point *> boundary) {
+    // going throughout all points to check if inside circle
+    for (Point *point: boundary) {
+        if (!isInside(*point, circle)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+Circle circleFrom2Points(Point *p1, Point *p2, Point *p3) {
+
+}
+
 Circle baseMinCircle(vector<Point *> boundary) {
     // if boundary is 0
     if (boundary.empty()) {
@@ -13,12 +36,26 @@ Circle baseMinCircle(vector<Point *> boundary) {
 
     // if boundary is 2
     if (boundary.size() == 2) {
-
+        return circleFrom2Points(boundary[0], boundary[1]);
     }
-}
 
-bool isInside(const Point &p, const Circle &d) {
-    return p.dist(d.center) <= d.radius;
+    // if boundary is 3 - try to make circle from pair
+    for (int first = 0; first < boundary.size(); ++first) {
+
+        for (int second = first + 1; second < boundary.size(); ++second) {
+
+            // calculating circle from pair
+            Circle circle = circleFrom2Points(boundary[first], boundary[second]);
+
+            // if the circle is valid return it
+            if (isValid(circle, boundary)) {
+                return circle;
+            }
+        }
+    }
+
+    // calculating cicle from 3 points
+    return circleFrom2Points(boundary[0], boundary[1], boundary[2]);
 }
 
 
@@ -47,5 +84,5 @@ Circle recursiveFindMinCircle(Point **points, vector<Point *> &boundary, size_t 
 Circle findMinCircle(Point **points, size_t size) {
     vector<Point *> boundary;
     boundary.reserve(3);
-    recursiveFindMinCircle(points, boundary, size)
+    recursiveFindMinCircle(points, boundary, size);
 }
