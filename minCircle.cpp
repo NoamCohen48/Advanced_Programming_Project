@@ -102,6 +102,6 @@ Circle recursiveFindMinCircle(Point **points, vector<Point *> &boundary, size_t 
 Circle findMinCircle(Point **points, size_t size) {
     vector<Point *> boundary;
     boundary.reserve(3);
-    recursiveFindMinCircle(points, boundary, size);
+    return recursiveFindMinCircle(points, boundary, size);
 }
 
