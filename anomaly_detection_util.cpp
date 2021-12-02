@@ -16,7 +16,6 @@ float avr(const std::vector<float> &x, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
-
         throw std::invalid_argument("size <= 0");
     }
 
@@ -26,7 +25,6 @@ float avr(const std::vector<float> &x, int size) {
 
         sum += x[i];
     }
-
 
     return sum / (float) size;
 }
@@ -41,15 +39,13 @@ float var(const std::vector<float> &x, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
-
         throw std::invalid_argument("size <= 0");
     }
 
-    float newSize = size;
-    double sum = 0;
     double mu = avr(x, size);
 
     //Calculate sum.
+    double sum = 0;
     for (int i = 0; i < size; i++) {
         sum += pow(x[i], 2);
     }
@@ -67,12 +63,8 @@ float cov(const std::vector<float> &x, const std::vector<float> &y, int size) {
 
     //Check if the size is 0.
     if (size <= 0) {
-
         throw std::invalid_argument("size <= 0");
     }
-
-    std::vector<float> newAry;
-    newAry.reserve(size);
 
     //Calculate E(X).
     float avrX = avr(x, size);
@@ -81,8 +73,9 @@ float cov(const std::vector<float> &x, const std::vector<float> &y, int size) {
     float avrY = avr(y, size);
 
     //Calculate XY.
+    std::vector<float> newAry;
+    newAry.reserve(size);
     for (int i = 0; i < size; i++) {
-
         newAry.push_back(x[i] * y[i]);
     }
 
@@ -165,7 +158,6 @@ Line linear_reg(const std::vector<float> &x, const std::vector<float> &y, int si
 
     //Check if the size is 0.
     if (size <= 0) {
-
         throw std::invalid_argument("size <= 0");
     }
 

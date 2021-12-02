@@ -1,0 +1,4 @@
+C:\Windows\system32\wsl.exe --distribution Ubuntu --exec /bin/bash -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd '/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl' && /opt/cmake-3.20.6-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' '/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2'"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl
