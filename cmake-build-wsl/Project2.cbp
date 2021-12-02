@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
+				<Option working_dir="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
+				<Option working_dir="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
+				<Option working_dir="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project2">
-				<Option output="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/Project2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
+				<Option output="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/Project2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 Project2"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 Project2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project2/fast">
-				<Option output="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/Project2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
+				<Option output="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/Project2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,41 +75,47 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 Project2/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/d/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 Project2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/noam/OneDrive\ -\ Bar-Ilan\ University/BIU\ -\ Advanced\ Programing/Project2/cmake-build-wsl/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/HybridAnomalyDetector.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/HybridAnomalyDetector.h">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.h">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.h">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.cpp">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.h">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.h">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.h">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/CMakeLists.txt">
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/timeseries.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

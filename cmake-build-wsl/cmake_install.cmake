@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2
+# Install script for directory: /mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/d/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/cmake-build-wsl/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

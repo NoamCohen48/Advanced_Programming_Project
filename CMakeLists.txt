@@ -8,4 +8,4 @@ add_executable(Project2
         SimpleAnomalyDetector.cpp SimpleAnomalyDetector.h
         timeseries.cpp timeseries.h
         MainTrain.cpp
-        minCircle.cpp minCircle.h)
+        minCircle.cpp minCircle.h HybridAnomalyDetector.cpp HybridAnomalyDetector.h)
