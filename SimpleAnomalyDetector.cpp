@@ -36,20 +36,9 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
             }
         }
 
-        // If not above pearsonThreshold we continue
-        if (maxPearson < pearsonThreshold || secondIdMax == -1) {
-            continue;
-        }
 
-        // Add the correlated column
-        const std::vector<float> &secondVec = ts.getColumn(secondIdMax);
-
-        // Regression line
-        Line regLine = linear_reg(firstVec, secondVec, rows);
-        // Correlation value
-        float maxDev = calculateDeviation(firstVec, secondVec, rows, regLine);
         // Adding to vector
-        addCF(ts.getColumnName(firstId), ts.getColumnName(secondIdMax), maxPearson, regLine, maxDev);
+        addCF(ts, firstId, secondIdMax, maxPearson);
     }
 }
 
@@ -86,16 +75,25 @@ float SimpleAnomalyDetector::calculateDeviation(const std::vector<float> &firstV
  * @param regLine the regression line.
  * @param maxDev the max deviation of the two columns.
  */
-void SimpleAnomalyDetector::addCF(const string &firstColumn, const string &secondColumn, float pearson, Line regLine,
-                                  float maxDev) {
+void SimpleAnomalyDetector::addCF(const TimeSeries &ts, const int &firstId, const int &secondId, const float &pearson) {
 
-    correlatedFeatures correlatedFeature;
-    correlatedFeature.corrlation = pearson;
-    correlatedFeature.feature1 = firstColumn;
-    correlatedFeature.feature2 = secondColumn;
-    correlatedFeature.lin_reg = regLine;
-    correlatedFeature.threshold = maxDev * 1.1f;
-    cf.push_back(correlatedFeature);
+    // If not above pearsonThreshold we continue
+    if (pearson < pearsonThreshold || secondId == -1) {
+        return;
+    }
+
+    // get the columns
+    const std::vector<float> &firstVec = ts.getColumn(firstId);
+    const std::vector<float> &secondVec = ts.getColumn(secondId);
+
+    // adding correlated Feature
+    string firstName = ts.getColumnName(firstId);
+    string secondName = ts.getColumnName(secondId);
+    Line line = linear_reg(firstVec, secondVec, ts.getRowsSize());
+    float threshold = calculateDeviation(firstVec, secondVec, ts.getRowsSize(), line) * 1.1f;
+
+    // adding the cf
+    cf.emplace_back(firstName, secondName, pearson, line, Point(0, 0), threshold);
 }
 
 /**
@@ -113,21 +111,23 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
         const std::vector<float> &secondVec = ts.getColumn(correlatedFeature.feature2);
         int size = ts.getRowsSize();
 
-        // Create regLine from correlated feature
-        Line regLine = correlatedFeature.lin_reg;
-        float devThreshold = correlatedFeature.threshold;
-
         // Check for false points
         for (int i = 0; i < size; ++i) {
-            Point point(firstVec[i], secondVec[i]);
-            float curDev = dev(point, regLine);
-
             // If dev is greater than Threshold, add the anomaly report
-            if (curDev >= devThreshold) {
+            if (isAnomaly(firstVec[i], secondVec[i], correlatedFeature)) {
                 result.emplace_back(correlatedFeature.feature1 + "-" + correlatedFeature.feature2, i + 1);
             }
         }
     }
 
     return result;
+}
+
+bool SimpleAnomalyDetector::isAnomaly(float x, float y, const correlatedFeatures &correlatedFeature) {
+    Point point(x, y);
+    float curDev = dev(point, correlatedFeature.lin_reg);
+
+    if (curDev >= correlatedFeature.threshold)
+        return true;
+    return false;
 }
