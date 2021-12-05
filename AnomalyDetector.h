@@ -1,3 +1,8 @@
+/*
+ * Created by:
+ * Shaked Cohen, Shakedc159@gmail.com.
+ * Noam Cohen, cohennoam48@gmail.com.
+*/
 
 
 #ifndef ANOMALYDETECTOR_H_

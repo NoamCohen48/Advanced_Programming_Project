@@ -1,3 +1,8 @@
+/*
+ * Created by:
+ * Shaked Cohen, Shakedc159@gmail.com.
+ * Noam Cohen, cohennoam48@gmail.com.
+*/
 
 #include "HybridAnomalyDetector.h"
 

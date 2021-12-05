@@ -1,6 +1,9 @@
-//
-// Created by user on 12/10/2021.
-//
+/*
+ * Created by:
+ * Shaked Cohen, Shakedc159@gmail.com.
+ * Noam Cohen, cohennoam48@gmail.com.
+*/
+
 
 #ifndef PROJECT1_ANOMALY_DETECTION_UTIL_H
 #define PROJECT1_ANOMALY_DETECTION_UTIL_H
