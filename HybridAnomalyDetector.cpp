@@ -55,7 +55,7 @@ bool HybridAnomalyDetector::isAnomaly(float x, float y, const correlatedFeatures
 
     // if Circle evaluation
     bool isInside = Point(x, y).dist(cf.circleCenter) < cf.threshold;
-    if (isInside)
+    if (!isInside)
         return true;
     return false;
 }

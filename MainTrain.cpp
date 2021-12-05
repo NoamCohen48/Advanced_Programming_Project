@@ -106,6 +106,13 @@ int main() {
     //	C-D: y=a2*x+b2
     //	E-F: y=a3*x+b3
 
+//    float a1 = 7, b1 = -24;
+//    float a2 = 1, b2 = 34;
+//    float a3 = 11, b3 = -9;
+
+    // problem in E-F
+
+
     generateTrainCSV(a1, b1, a2, b2, a3, b3);
     TimeSeries ts("trainFile.csv");
     HybridAnomalyDetector ad;
