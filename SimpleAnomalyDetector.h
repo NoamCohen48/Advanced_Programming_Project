@@ -30,7 +30,7 @@ class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
 protected:
 
     vector<correlatedFeatures> cf;
-    float pearsonThreshold = 0.7;
+    float pearsonThreshold = 0.9;
 
 
     /**

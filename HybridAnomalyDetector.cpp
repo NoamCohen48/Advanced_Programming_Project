@@ -19,7 +19,7 @@ Point **HybridAnomalyDetector::toPoints(vector<float> x, vector<float> y) {
 }
 
 void HybridAnomalyDetector::addCF(const TimeSeries &ts, const int &firstId, const int &secondId, const float &pearson) {
-    // if no coreletion
+    // if no correlation
     if (pearson < 0.5) {
         return;
     }
