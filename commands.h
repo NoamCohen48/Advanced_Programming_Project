@@ -1,4 +1,8 @@
-
+/*
+ * Created by:
+ * Shaked Cohen, Shakedc159@gmail.com.
+ * Noam Cohen, cohennoam48@gmail.com.
+*/
 
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
@@ -37,10 +41,18 @@ public:
 };
 
 // you may add here helper classes
+struct seqResult{
+    int start;
+    int end;
+    string description;
+    bool truePositive;
+};
 
 struct Database {
     float threshold;
     vector<AnomalyReport> result;
+    vector<seqResult> seqResults;
+    int numOfRows;
 
 };
 
@@ -79,28 +91,6 @@ public:
     }
 };
 
-// option 3
-class detectAnomaliesCommand : public Command {
-    string description = "detect anomalies\n";
-
-    void execute() override {
-        TimeSeries timeSeries("anomalyTrain.csv");
-
-        HybridAnomalyDetector anomalyDetector;
-        anomalyDetector.setPearsonThreshold(database->threshold);
-
-        // learning
-        anomalyDetector.learnNormal(timeSeries);
-
-        // detecting
-        timeSeries = TimeSeries("anomalyTest.csv");
-        database->result = anomalyDetector.detect(timeSeries);
-
-        // sending completed message
-        dio->write("anomaly detection complete");
-    }
-};
-
 // option 2
 class algorithmSettingsCommand : public Command {
     string description = "algorithm settings\n";
@@ -132,6 +122,61 @@ class algorithmSettingsCommand : public Command {
     }
 };
 
+// option 3
+class detectAnomaliesCommand : public Command {
+    string description = "detect anomalies\n";
+
+    void initSequencesVec() {
+        seqResult result;
+        result.start = 0;
+        result.end = 0;
+        result.truePositive = false;
+        result.description = "";
+
+        // Run through the lines in the database.
+        for(auto& line : database->result) {
+
+            // Check if the last line where in the same description and next timeStep.
+            if(line.timeStep == result.end+1 && line.description == result.description) {
+                result.end++;
+            } else {
+
+                // Else update the result to point the next line.
+                database->seqResults.push_back(result);
+                result.start = line.timeStep;
+                result.end = result.start;
+                result.description = line.description;
+            }
+        }
+
+        // Push the last result.
+        database->seqResults.push_back(result);
+
+        // Delete the first result (always empty).
+        database->seqResults.erase(database->seqResults.begin());
+    }
+
+    void execute() override {
+        TimeSeries timeSeries("anomalyTrain.csv");
+
+        HybridAnomalyDetector anomalyDetector;
+        anomalyDetector.setPearsonThreshold(database->threshold);
+
+        // learning
+        anomalyDetector.learnNormal(timeSeries);
+
+        // detecting
+        timeSeries = TimeSeries("anomalyTest.csv");
+        database->result = anomalyDetector.detect(timeSeries);
+
+        // Get the size.
+        database->numOfRows = timeSeries.getRowsSize();
+
+        // sending completed message.
+        dio->write("anomaly detection complete");
+    }
+};
+
 // option 4
 class displayResultsCommand : public Command {
     string description = "display results\n";
@@ -152,38 +197,14 @@ class displayResultsCommand : public Command {
 class uploadAnomaliesCommand : public Command {
     string description = "upload anomalies and analyze results\n";
 
-    vector<tuple<int, int, bool>> initSequencesVec() {
-        vector<tuple<int, int, bool>> result;
-        const auto &anomalies = database->result;
-
-        int start = anomalies[0].timeStep, end = start, curTimeStep;
-        string endDesc = anomalies[0].description, curDesc;
-        for (int i = 1; i < anomalies.size(); ++i){
-            curTimeStep = anomalies[i].timeStep;
-            curDesc = anomalies[i].description;
-
-            if(curTimeStep == end + 1 && endDesc == curDesc){
-                end = curTimeStep;
-                continue;
-            }
-
-            tuple<int, int, bool> temp (start, end, false);
-            result.push_back(temp);
-            start = curTimeStep;
-            end = start;
-            endDesc = curDesc;
-        }
-        return result;
-    }
-
-    bool isTruePositive(int start, int end, vector<tuple<int, int, bool>> resultVector) {
+    bool isTruePositive(int start, int end) {
         const auto &anomalies = database->result;
 
         // Run through all the lines in the result.
-        for (auto& tuple : resultVector) {
+        for (auto& line : database->seqResults) {
 
-            if (start >= get<0>(tuple) && end <= get<1>(tuple)) {
-                get<2>(tuple) = true;
+            if (start >= line.start && end <= line.end) {
+                line.truePositive = true;
                 return true;
             }
         }
@@ -192,7 +213,6 @@ class uploadAnomaliesCommand : public Command {
 
     void execute() override {
 
-        auto resultVector = initSequencesVec();
         string clientLine;
         int truePositive = 0;
         int falsePositive = 0;
@@ -212,7 +232,7 @@ class uploadAnomaliesCommand : public Command {
             int end = stoi(clientLine.erase(0, start + 1));
 
             // Check if the received in the range.
-            if (isTruePositive(start, end, resultVector)) {
+            if (isTruePositive(start, end)) {
                 truePositive++;
             }
 
@@ -222,16 +242,15 @@ class uploadAnomaliesCommand : public Command {
         }
 
         // Calculate the FP.
-        for (auto& tuple : resultVector) {
+        for (auto& line : database->seqResults) {
 
-            if (!get<2>(tuple)) {
+            if (!line.truePositive) {
                 falsePositive++;
             }
         }
 
         // Calculate N.
-        // TODO: get the table size (rows)
-        //  n = database->testFileSize - sum;
+        n = database->numOfRows - sum;
 
         dio->write("Upload complete.\n");
 
