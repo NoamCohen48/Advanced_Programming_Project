@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Project2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project2">
+				<Option output="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Project2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 Project2"/>
+					<CompileFile command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project2/fast">
+				<Option output="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Project2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Study/CLion 2021.2.2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 Project2/fast"/>
+					<CompileFile command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Study/CLION2~1.2/mingw64/bin/mingw32-make.exe -f &quot;D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/CLI.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/CLI.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/HybridAnomalyDetector.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/HybridAnomalyDetector.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/MainTrain.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/SimpleAnomalyDetector.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/anomaly_detection_util.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/commands.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/minCircle.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/minCircle.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/timeseries.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
