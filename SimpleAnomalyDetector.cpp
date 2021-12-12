@@ -136,3 +136,11 @@ bool SimpleAnomalyDetector::isAnomaly(float x, float y, const correlatedFeatures
         return true;
     return false;
 }
+
+float SimpleAnomalyDetector::getPearsonThreshold() const {
+    return pearsonThreshold;
+}
+
+void SimpleAnomalyDetector::setPearsonThreshold(float pearsonThreshold) {
+    SimpleAnomalyDetector::pearsonThreshold = pearsonThreshold;
+}

@@ -21,6 +21,7 @@ public:
     virtual ~DefaultIO(){}
 
     // you may add additional methods here
+    void readFile(string )
 };
 
 // you may add here helper classes
@@ -42,7 +43,9 @@ class uploadCSVCommand : public Command {
 public:
     string description = "upload a time series csv file\n";
     void execute() override {
-        dio->write("")
+        dio->write("please upload your local train csv file.\n");
+
+
     }
 };
 

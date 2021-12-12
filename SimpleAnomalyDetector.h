@@ -37,7 +37,12 @@ protected:
     vector<correlatedFeatures> cf;
     float pearsonThreshold = 0.9;
 
+public:
+    float getPearsonThreshold() const;
 
+    void setPearsonThreshold(float pearsonThreshold);
+
+protected:
     /**
      * Calculate max deviation of a given 2 columns which represent x and y values and a line.
      * @param firstVec, secondVec x value and y value of the points as vec.
