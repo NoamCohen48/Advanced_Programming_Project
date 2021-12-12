@@ -28,15 +28,31 @@ public:
 
 // you may edit this class
 class Command{
+protected:
     DefaultIO* dio;
 public:
     Command(DefaultIO* dio):dio(dio){}
-    virtual void execute()=0;
     virtual ~Command(){}
+    virtual void execute()=0;
+    string description;
 };
 
 // implement here your command classes
+class uploadCSVCommand : public Command {
+public:
+    string description = "upload a time series csv file\n";
+    void execute() override {
+        dio->write("")
+    }
+};
 
+class algorithmSettingsCommand : public Command {
+    string description = "algorithm settings\n";
+    void execute() override {
+
+    }
+
+};
 
 
 #endif /* COMMANDS_H_ */
