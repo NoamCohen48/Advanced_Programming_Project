@@ -76,28 +76,17 @@ class detectAnomaliesCommand : public Command {
     string description = "detect anomalies\n";
 
     void execute() override {
+        TimeSeries timeSeries("anomalyTrain.csv");
 
-        float wantedThreshold;
+        // TODO: assign new threshold to detector
+        HybridAnomalyDetector anomalyDetector;
 
-        // Get the pearson threshold.
-        double pearsonThreshold = (new HybridAnomalyDetector())->getPearsonThreshold();
+        // learning
+        anomalyDetector.learnNormal(timeSeries);
 
-        while(true) {
-
-            // Write to the client.
-            dio->write("The current correlation threshold is " + to_string(pearsonThreshold) + "\n");
-
-            // Get wanted threshold from the client.
-            dio->read(&wantedThreshold);
-
-            // Check if the Threshold is between 0 and 1.
-            if (wantedThreshold >= 0 && wantedThreshold <= 1) {
-
-                // TODO save new Threshold.
-                break;
-            }
-            dio->write("please choose a value between 0 and 1.\n");
-        }
+        // detecting
+        timeSeries = TimeSeries("anomalyTest.csv");
+        anomalyDetector.detect(timeSeries);
     }
 
 };
