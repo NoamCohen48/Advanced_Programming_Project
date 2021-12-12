@@ -8,6 +8,7 @@
 
 #include <fstream>
 #include <vector>
+#include <tuple>
 #include "HybridAnomalyDetector.h"
 
 using namespace std;
@@ -37,11 +38,17 @@ public:
 
 // you may add here helper classes
 
+struct Database {
+    float threshold;
+    vector<AnomalyReport> result;
+
+};
 
 // you may edit this class
 class Command {
 protected:
     DefaultIO *dio;
+    Database *database;
 public:
     Command(DefaultIO *dio) : dio(dio) {}
 
@@ -72,6 +79,7 @@ public:
     }
 };
 
+// option 3
 class detectAnomaliesCommand : public Command {
     string description = "detect anomalies\n";
 
@@ -91,6 +99,7 @@ class detectAnomaliesCommand : public Command {
 
 };
 
+// option 2
 class algorithmSettingsCommand : public Command {
     string description = "algorithm settings\n";
 
@@ -112,11 +121,132 @@ class algorithmSettingsCommand : public Command {
             // Check if the Threshold is between 0 and 1.
             if (wantedThreshold >= 0 && wantedThreshold <= 1) {
 
-                // TODO save new Threshold.
+                // save the new threshold.
+                database->threshold = wantedThreshold;
                 break;
             }
             dio->write("please choose a value between 0 and 1.\n");
         }
+    }
+};
+
+// option 4
+class displayResultsCommand : public Command {
+    string description = "display results\n";
+
+    void execute() override {
+
+        // Run through lines in the result vector and write them.
+        for (const auto &line: database->result) {
+            dio->write(to_string(line.timeStep) + "\t" + line.description + "\n");
+        }
+
+        // Write done.
+        dio->write("Done.");
+    }
+};
+
+// option 5
+class uploadAnomaliesCommand : public Command {
+    string description = "upload anomalies and analyze results\n";
+
+    vector<tuple<int, int, bool>> initSequencesVec() {
+        vector<tuple<int, int, bool>> result;
+        const auto &anomalies = database->result;
+
+        int start = anomalies[0].timeStep, end = start, curTimeStep;
+        string endDesc = anomalies[0].description, curDesc;
+        for (int i = 1; i < anomalies.size(); ++i){
+            curTimeStep = anomalies[i].timeStep;
+            curDesc = anomalies[i].description;
+
+            if(curTimeStep == end + 1 && endDesc == curDesc){
+                end = curTimeStep;
+                continue;
+            }
+
+            tuple<int, int, bool> temp (start, end, false);
+            result.push_back(temp);
+            start = curTimeStep;
+            end = start;
+            endDesc = curDesc;
+        }
+        return result;
+    }
+
+    bool isTruePositive(int start, int end, vector<tuple<int, int, bool>> resultVector) {
+        const auto &anomalies = database->result;
+
+        // Run through all the lines in the result.
+        for (auto& tuple : resultVector) {
+
+            if (start >= get<0>(tuple) && end <= get<1>(tuple)) {
+                get<2>(tuple) = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void execute() override {
+
+        auto resultVector = initSequencesVec();
+        string clientLine;
+        int truePositive = 0;
+        int falsePositive = 0;
+        int sum = 0;
+        int positive = 0;
+        int n = 0;
+
+        dio->write("Please upload your local anomalies file.\n");
+
+        // Run through the received lines from the client.
+        while ((clientLine = dio->read()) != "done") {
+
+            // Get the start time.
+            int start = stoi(clientLine.substr(0, clientLine.find(',')));
+
+            // Get the end time.
+            int end = stoi(clientLine.erase(0, start + 1));
+
+            // Check if the received in the range.
+            if (isTruePositive(start, end, resultVector)) {
+                truePositive++;
+            }
+
+            // Summering the table length.
+            sum = end - start + 1;
+            positive++;
+        }
+
+        // Calculate the FP.
+        for (auto& tuple : resultVector) {
+
+            if (!get<2>(tuple)) {
+                falsePositive++;
+            }
+        }
+
+        // Calculate N.
+        // TODO: get the table size (rows)
+        //  n = database->testFileSize - sum;
+
+        dio->write("Upload complete.\n");
+
+        // Write TP/P.
+        dio->write("True Positive Rate: " + to_string(truePositive / positive) + "\n");
+
+        // Write FP/N.
+        dio->write("False Positive Rate: " + to_string(falsePositive / n) + "\n");
+    }
+};
+
+// option 6
+class exitCommand : public Command {
+    string description = "exit\n";
+
+    void execute() override {
+        //TODO: exit the program
     }
 };
 
