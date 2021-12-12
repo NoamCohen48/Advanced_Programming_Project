@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/CLI.cpp" "CMakeFiles/Project2.dir/CLI.cpp.o" "gcc" "CMakeFiles/Project2.dir/CLI.cpp.o.d"
   "/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/HybridAnomalyDetector.cpp" "CMakeFiles/Project2.dir/HybridAnomalyDetector.cpp.o" "gcc" "CMakeFiles/Project2.dir/HybridAnomalyDetector.cpp.o.d"
   "/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/MainTrain.cpp" "CMakeFiles/Project2.dir/MainTrain.cpp.o" "gcc" "CMakeFiles/Project2.dir/MainTrain.cpp.o.d"
   "/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/SimpleAnomalyDetector.cpp" "CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o" "gcc" "CMakeFiles/Project2.dir/SimpleAnomalyDetector.cpp.o.d"

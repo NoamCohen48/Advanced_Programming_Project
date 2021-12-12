@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/CLI.cpp">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/CLI.h">
+			<Option target="Project2"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/HybridAnomalyDetector.cpp">
 			<Option target="Project2"/>
 		</Unit>
@@ -101,6 +107,9 @@
 			<Option target="Project2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/anomaly_detection_util.h">
+			<Option target="Project2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/commands.h">
 			<Option target="Project2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/noam/OneDrive - Bar-Ilan University/BIU - Advanced Programing/Project2/minCircle.cpp">

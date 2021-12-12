@@ -128,6 +128,30 @@ Project2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project2.dir\build.make CMakeFiles/Project2.dir/build
 .PHONY : Project2/fast
 
+CLI.obj: CLI.cpp.obj
+.PHONY : CLI.obj
+
+# target to build an object file
+CLI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project2.dir\build.make CMakeFiles/Project2.dir/CLI.cpp.obj
+.PHONY : CLI.cpp.obj
+
+CLI.i: CLI.cpp.i
+.PHONY : CLI.i
+
+# target to preprocess a source file
+CLI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project2.dir\build.make CMakeFiles/Project2.dir/CLI.cpp.i
+.PHONY : CLI.cpp.i
+
+CLI.s: CLI.cpp.s
+.PHONY : CLI.s
+
+# target to generate assembly for a file
+CLI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project2.dir\build.make CMakeFiles/Project2.dir/CLI.cpp.s
+.PHONY : CLI.cpp.s
+
 HybridAnomalyDetector.obj: HybridAnomalyDetector.cpp.obj
 .PHONY : HybridAnomalyDetector.obj
 
@@ -281,6 +305,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project2
+	@echo ... CLI.obj
+	@echo ... CLI.i
+	@echo ... CLI.s
 	@echo ... HybridAnomalyDetector.obj
 	@echo ... HybridAnomalyDetector.i
 	@echo ... HybridAnomalyDetector.s
