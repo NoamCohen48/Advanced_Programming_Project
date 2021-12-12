@@ -19,12 +19,12 @@ bool isInside(const Point &p, const Circle &circle) {
 /**
  * The function check if all the received point within the circle.
  * @param circle circle.
- * @param boundary array of points.
+ * @param points array of points.
  * @return True if all the point in the circle, false else.
  */
-bool isValid(Circle circle, const vector<Point *> &boundary) {
+bool isValid(Circle circle, const vector<Point *> &points) {
     // going throughout all points to check if inside circle
-    for (Point *point: boundary) {
+    for (Point *point: points) {
         if (!isInside(*point, circle)) {
             return false;
         }
@@ -44,13 +44,13 @@ Circle circleFrom3Points(const Point &p1, const Point &p2, const Point &p3) {
     double newC = (p3.x - p1.x) * (p3.x - p1.x) + (p3.y - p1.y) * (p3.y - p1.y);
     double newD = (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
 
-    Point *center = new Point(((((p3.y - p1.y) * newB - (p2.y - p1.y) * newC) / (2 * newD))),
-                              (((p2.x - p1.x) * newC - (p3.x - p1.x) * newB) / (2 * newD)));
+    Point center(((p3.y - p1.y) * newB - (p2.y - p1.y) * newC) / (2 * newD),
+                 ((p2.x - p1.x) * newC - (p3.x - p1.x) * newB) / (2 * newD));
 
-    center->x += p1.x;
-    center->y += p1.y;
+    center.x += p1.x;
+    center.y += p1.y;
 
-    return Circle(*center, center->dist(p1));
+    return Circle(center, center.dist(p1));
 }
 
 /**
@@ -61,10 +61,10 @@ Circle circleFrom3Points(const Point &p1, const Point &p2, const Point &p3) {
  */
 Circle circleFrom2Points(const Point &p1, const Point &p2) {
     // Set the center to be the midpoint of A and p2
-    Point *center = new Point(((p1.x + p2.x) / 2.0), ((p1.y + p2.y) / 2.0));
+    Point center((p1.x + p2.x) / 2.0f, (p1.y + p2.y) / 2.0f);
 
     // Set the radius to be half the distance between p1 and p2
-    return Circle(*center, (p1.dist(p2) / 2.0));
+    return Circle(center, p1.dist(p2) / 2.0f);
 }
 
 /**
@@ -89,19 +89,31 @@ Circle baseMinCircle(vector<Point *> boundary) {
     }
 
     // if boundary is 3 - try to make circle from pair
-    for (int first = 0; first < boundary.size(); ++first) {
+    Circle circle = circleFrom2Points(*boundary[0], *boundary[1]);
+    if (isInside(*boundary[2], circle))
+        return circle;
 
-        for (int second = first + 1; second < boundary.size(); ++second) {
+    circle = circleFrom2Points(*boundary[0], *boundary[2]);
+    if (isInside(*boundary[2], circle))
+        return circle;
 
-            // calculating circle from pair
-            Circle circle = circleFrom2Points(*boundary[first], *boundary[second]);
+    circle = circleFrom2Points(*boundary[1], *boundary[2]);
+    if (isInside(*boundary[2], circle))
+        return circle;
 
-            // if the circle is valid return it
-            if (isValid(circle, boundary)) {
-                return circle;
-            }
-        }
-    }
+//    for (int first = 0; first < boundary.size(); ++first) {
+//
+//        for (int second = first + 1; second < boundary.size(); ++second) {
+//
+//            // calculating circle from pair
+//            Circle circle = circleFrom2Points(*boundary[first], *boundary[second]);
+//
+//            // if the circle is valid return it
+//            if (isValid(circle, boundary)) {
+//                return circle;
+//            }
+//        }
+//    }
 
     // calculating circle from 3 points
     return circleFrom3Points(*boundary[0], *boundary[1], *boundary[2]);
