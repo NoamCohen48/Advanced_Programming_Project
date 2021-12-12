@@ -86,17 +86,19 @@ class detectAnomaliesCommand : public Command {
     void execute() override {
         TimeSeries timeSeries("anomalyTrain.csv");
 
-        // TODO: assign new threshold to detector
         HybridAnomalyDetector anomalyDetector;
+        anomalyDetector.setPearsonThreshold(database->threshold);
 
         // learning
         anomalyDetector.learnNormal(timeSeries);
 
         // detecting
         timeSeries = TimeSeries("anomalyTest.csv");
-        anomalyDetector.detect(timeSeries);
-    }
+        database->result = anomalyDetector.detect(timeSeries);
 
+        // sending completed message
+        dio->write("anomaly detection complete");
+    }
 };
 
 // option 2
