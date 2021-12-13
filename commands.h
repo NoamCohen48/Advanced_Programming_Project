@@ -34,7 +34,7 @@ public:
         ofstream file(filePath);
         string line = read();
         while (line != "done") {
-            file << line;
+            file << line + '\n';
             line = read();
         }
         file.close();
@@ -58,7 +58,6 @@ struct Database {
 class Command {
 protected:
     DefaultIO *dio;
-    Database *database{};
 public:
     explicit Command(DefaultIO *dio) : dio(dio) {}
 
@@ -79,12 +78,12 @@ public:
 
     void execute(Database &database) override {
         // get train csv
-        dio->write("please upload your local train csv file.\n");
+        dio->write("Please upload your local train CSV file.\n");
         dio->readFile("anomalyTrain.csv");
         dio->write("Upload complete.\n");
 
         // get test csv
-        dio->write("please upload your local test csv file.\n");
+        dio->write("Please upload your local test CSV file.\n");
         dio->readFile("anomalyTest.csv");
         dio->write("Upload complete.\n");
     }
@@ -94,7 +93,7 @@ public:
 class algorithmSettingsCommand : public Command {
 public:
     explicit algorithmSettingsCommand(DefaultIO *dio) : Command(dio) {
-            this->description = "algorithm settings\n";
+        this->description = "algorithm settings\n";
     }
 
     void execute(Database &database) override {
@@ -107,7 +106,9 @@ public:
         while (true) {
 
             // Write to the client.
-            dio->write("The current correlation threshold is " + to_string(pearsonThreshold) + "\n");
+            dio->write("The current correlation threshold is ");
+            dio->write(pearsonThreshold);
+            dio->write("\nType a new threshold\n");
 
             // Get wanted threshold from the client.
             dio->read(&wantedThreshold);
@@ -128,11 +129,11 @@ public:
 class detectAnomaliesCommand : public Command {
 public:
     explicit detectAnomaliesCommand(DefaultIO *dio) : Command(dio) {
-            this->description = "detect anomalies\n";
+        this->description = "detect anomalies\n";
     }
 
 
-    void initSequencesVec() {
+    void initSequencesVec(Database &database) {
         seqResult result;
         result.start = 0;
         result.end = 0;
@@ -140,7 +141,7 @@ public:
         result.description = "";
 
         // Run through the lines in the database.
-        for (auto &line: database->result) {
+        for (auto &line: database.result) {
 
             // Check if the last line where in the same description and next timeStep.
             if (line.timeStep == result.end + 1 && line.description == result.description) {
@@ -148,7 +149,7 @@ public:
             } else {
 
                 // Else update the result to point the next line.
-                database->seqResults.push_back(result);
+                database.seqResults.push_back(result);
                 result.start = line.timeStep;
                 result.end = result.start;
                 result.description = line.description;
@@ -156,10 +157,10 @@ public:
         }
 
         // Push the last result.
-        database->seqResults.push_back(result);
+        database.seqResults.push_back(result);
 
         // Delete the first result (always empty).
-        database->seqResults.erase(database->seqResults.begin());
+        database.seqResults.erase(database.seqResults.begin());
     }
 
     void execute(Database &database) override {
@@ -176,13 +177,13 @@ public:
         database.result = anomalyDetector.detect(timeSeries);
 
         // building the sequences vectors
-        initSequencesVec();
+        initSequencesVec(database);
 
         // Get the size.
         database.numOfRows = timeSeries.getRowsSize();
 
         // sending completed message.
-        dio->write("anomaly detection complete");
+        dio->write("anomaly detection complete.\n");
     }
 };
 
@@ -190,7 +191,7 @@ public:
 class displayResultsCommand : public Command {
 public:
     explicit displayResultsCommand(DefaultIO *dio) : Command(dio) {
-            this->description = "display results\n";
+        this->description = "display results\n";
     }
 
     void execute(Database &database) override {
@@ -201,7 +202,7 @@ public:
         }
 
         // Write done.
-        dio->write("Done.");
+        dio->write("Done.\n");
     }
 };
 
@@ -209,17 +210,17 @@ public:
 class uploadAnomaliesCommand : public Command {
 public:
     explicit uploadAnomaliesCommand(DefaultIO *dio) : Command(dio) {
-            this->description = "upload anomalies and analyze results\n";
+        this->description = "upload anomalies and analyze results\n";
     }
 
-    bool isTruePositive(int start, int end) {
-        const auto &anomalies = database->result;
+    bool isTruePositive(int start, int end, Database &database) {
+        const auto &anomalies = database.result;
 
         // Run through all the lines in the result.
-        for (auto &line: database->seqResults) {
+        for (auto &report: database.seqResults) {
 
-            if (start >= line.start && end <= line.end) {
-                line.truePositive = true;
+            if (start <= report.end && end >= report.start) {
+                report.truePositive = true;
                 return true;
             }
         }
@@ -241,13 +242,14 @@ public:
         while ((clientLine = dio->read()) != "done") {
 
             // Get the start time.
-            int start = stoi(clientLine.substr(0, clientLine.find(',')));
+            string startStr = clientLine.substr(0, clientLine.find(','));
+            int start = stoi(startStr);
 
             // Get the end time.
-            int end = stoi(clientLine.erase(0, start + 1));
+            int end = stoi(clientLine.erase(0, startStr.size() + 1));
 
             // Check if the received in the range.
-            if (isTruePositive(start, end)) {
+            if (isTruePositive(start, end, database)) {
                 truePositive++;
             }
 
@@ -269,11 +271,17 @@ public:
 
         dio->write("Upload complete.\n");
 
+        float truePositiveRatio = ((int) (1000.0 * truePositive / positive)) / 1000.0f;
+        float falsePositiveRatio = ((int) (1000.0 * falsePositive / n)) / 1000.0f;
+
         // Write TP/P.
-        dio->write("True Positive Rate: " + to_string(truePositive / positive) + "\n");
+        dio->write("True Positive Rate: ");
+        dio->write(truePositiveRatio);
 
         // Write FP/N.
-        dio->write("False Positive Rate: " + to_string(falsePositive / n) + "\n");
+        dio->write("\nFalse Positive Rate: ");
+        dio->write(falsePositiveRatio);
+        dio->write("\n");
     }
 };
 
@@ -281,7 +289,7 @@ public:
 class exitCommand : public Command {
 public:
     explicit exitCommand(DefaultIO *dio) : Command(dio) {
-            this->description = "exit\n";
+        this->description = "exit\n";
     }
 
     void execute(Database &database) override {

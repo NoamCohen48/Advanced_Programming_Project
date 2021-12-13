@@ -27,7 +27,8 @@ void CLI::start() {
 
         int commandNum = 1;
         for (auto command: commands) {
-            dio->write(to_string(commandNum) + " " + command->description);
+            dio->write(to_string(commandNum) + "." + command->description);
+            commandNum++;
         }
 
         string input = dio->read();
@@ -36,12 +37,12 @@ void CLI::start() {
         nextCommand = stoi(input) - 1;
 
         // Check if the command valid.
-        if (nextCommand >= 0 && nextCommand <= 6) {
+        if (nextCommand >= 0 && nextCommand < commands.size()) {
 
             // Execute the command.
             commands[nextCommand]->execute(db);
         }
-    } while (nextCommand != 6);
+    } while (nextCommand != 5);
 
 }
 
