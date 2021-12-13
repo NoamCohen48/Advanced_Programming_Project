@@ -7,7 +7,7 @@
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
 
-#include<iostream>
+#include <iostream>
 #include <string.h>
 
 #include <fstream>
@@ -27,7 +27,7 @@ public:
 
     virtual void read(float *f) = 0;
 
-    virtual ~DefaultIO() {}
+    virtual ~DefaultIO() = default;
 
     // you may add additional methods here
     void readFile(const string &filePath) {
@@ -41,7 +41,7 @@ public:
 };
 
 // you may add here helper classes
-struct seqResult{
+struct seqResult {
     int start;
     int end;
     string description;
@@ -134,10 +134,10 @@ class detectAnomaliesCommand : public Command {
         result.description = "";
 
         // Run through the lines in the database.
-        for(auto& line : database->result) {
+        for (auto &line: database->result) {
 
             // Check if the last line where in the same description and next timeStep.
-            if(line.timeStep == result.end+1 && line.description == result.description) {
+            if (line.timeStep == result.end + 1 && line.description == result.description) {
                 result.end++;
             } else {
 
@@ -168,6 +168,9 @@ class detectAnomaliesCommand : public Command {
         // detecting
         timeSeries = TimeSeries("anomalyTest.csv");
         database->result = anomalyDetector.detect(timeSeries);
+
+        // building the sequences vectors
+        initSequencesVec();
 
         // Get the size.
         database->numOfRows = timeSeries.getRowsSize();
@@ -201,7 +204,7 @@ class uploadAnomaliesCommand : public Command {
         const auto &anomalies = database->result;
 
         // Run through all the lines in the result.
-        for (auto& line : database->seqResults) {
+        for (auto &line: database->seqResults) {
 
             if (start >= line.start && end <= line.end) {
                 line.truePositive = true;
@@ -242,7 +245,7 @@ class uploadAnomaliesCommand : public Command {
         }
 
         // Calculate the FP.
-        for (auto& line : database->seqResults) {
+        for (auto &line: database->seqResults) {
 
             if (!line.truePositive) {
                 falsePositive++;
