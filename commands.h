@@ -35,12 +35,12 @@ public:
         string line = read();
         while (line != "done") {
             file << line;
+            line = read();
         }
         file.close();
     }
 };
 
-// you may add here helper classes
 struct seqResult {
     int start;
     int end;
@@ -53,25 +53,21 @@ struct Database {
     vector<AnomalyReport> result;
     vector<seqResult> seqResults;
     int numOfRows;
-
 };
 
-// you may edit this class
 class Command {
 protected:
     DefaultIO *dio;
-    Database *database;
+    Database *database{};
 public:
-    Command(DefaultIO *dio) : dio(dio) {}
+    explicit Command(DefaultIO *dio) : dio(dio) {}
 
-    virtual ~Command() {}
+    virtual ~Command() = default;
 
-    virtual void execute() = 0;
+    virtual void execute(Database &database) = 0;
 
     string description;
 };
-
-// implement here your command classes
 
 // option 1
 class uploadCSVCommand : public Command {
@@ -81,7 +77,7 @@ public:
         this->description = "upload a time series csv file\n";
     }
 
-    void execute() override {
+    void execute(Database &database) override {
         // get train csv
         dio->write("please upload your local train csv file.\n");
         dio->readFile("anomalyTrain.csv");
@@ -101,7 +97,7 @@ public:
             this->description = "algorithm settings\n";
     }
 
-    void execute() override {
+    void execute(Database &database) override {
 
         float wantedThreshold;
 
@@ -120,7 +116,7 @@ public:
             if (wantedThreshold >= 0 && wantedThreshold <= 1) {
 
                 // save the new threshold.
-                database->threshold = wantedThreshold;
+                database.threshold = wantedThreshold;
                 break;
             }
             dio->write("please choose a value between 0 and 1.\n");
@@ -166,24 +162,24 @@ public:
         database->seqResults.erase(database->seqResults.begin());
     }
 
-    void execute() override {
+    void execute(Database &database) override {
         TimeSeries timeSeries("anomalyTrain.csv");
 
         HybridAnomalyDetector anomalyDetector;
-        anomalyDetector.setPearsonThreshold(database->threshold);
+        anomalyDetector.setPearsonThreshold(database.threshold);
 
         // learning
         anomalyDetector.learnNormal(timeSeries);
 
         // detecting
         timeSeries = TimeSeries("anomalyTest.csv");
-        database->result = anomalyDetector.detect(timeSeries);
+        database.result = anomalyDetector.detect(timeSeries);
 
         // building the sequences vectors
         initSequencesVec();
 
         // Get the size.
-        database->numOfRows = timeSeries.getRowsSize();
+        database.numOfRows = timeSeries.getRowsSize();
 
         // sending completed message.
         dio->write("anomaly detection complete");
@@ -197,10 +193,10 @@ public:
             this->description = "display results\n";
     }
 
-    void execute() override {
+    void execute(Database &database) override {
 
         // Run through lines in the result vector and write them.
-        for (const auto &line: database->result) {
+        for (const auto &line: database.result) {
             dio->write(to_string(line.timeStep) + "\t" + line.description + "\n");
         }
 
@@ -230,7 +226,7 @@ public:
         return false;
     }
 
-    void execute() override {
+    void execute(Database &database) override {
 
         string clientLine;
         int truePositive = 0;
@@ -261,7 +257,7 @@ public:
         }
 
         // Calculate the FP.
-        for (auto &line: database->seqResults) {
+        for (auto &line: database.seqResults) {
 
             if (!line.truePositive) {
                 falsePositive++;
@@ -269,7 +265,7 @@ public:
         }
 
         // Calculate N.
-        n = database->numOfRows - sum;
+        n = database.numOfRows - sum;
 
         dio->write("Upload complete.\n");
 
@@ -288,7 +284,7 @@ public:
             this->description = "exit\n";
     }
 
-    void execute() override {
+    void execute(Database &database) override {
         //TODO: exit the program
     }
 };

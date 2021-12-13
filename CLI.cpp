@@ -6,7 +6,7 @@
 
 #include "CLI.h"
 
-CLI::CLI(DefaultIO* dio) {
+CLI::CLI(DefaultIO *dio) {
     this->dio = dio;
     commands.push_back(new uploadCSVCommand(this->dio));
     commands.push_back(new algorithmSettingsCommand(this->dio));
@@ -16,7 +16,8 @@ CLI::CLI(DefaultIO* dio) {
     commands.push_back(new exitCommand(this->dio));
 }
 
-void CLI::start(){
+void CLI::start() {
+    Database db;
 
     int nextCommand = 0;
     do {
@@ -25,21 +26,22 @@ void CLI::start(){
         dio->write("Please choose an option:\n");
 
         int commandNum = 1;
-        for (auto command : commands) {
+        for (auto command: commands) {
             dio->write(to_string(commandNum) + " " + command->description);
         }
 
+        string input = dio->read();
+
         // Get the next command from the user.
-        nextCommand = stoi(dio->read()) - 1;
+        nextCommand = stoi(input) - 1;
 
         // Check if the command valid.
         if (nextCommand >= 0 && nextCommand <= 6) {
 
             // Execute the command.
-            commands[nextCommand]->execute();
+            commands[nextCommand]->execute(db);
         }
-    }
-    while (nextCommand != 6);
+    } while (nextCommand != 6);
 
 }
 
