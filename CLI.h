@@ -14,6 +14,7 @@ using namespace std;
 
 class CLI {
     DefaultIO* dio;
+    vector<Command*> commands;
     // you can add data members
 public:
     CLI(DefaultIO* dio);

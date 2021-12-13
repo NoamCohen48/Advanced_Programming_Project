@@ -76,7 +76,10 @@ public:
 // option 1
 class uploadCSVCommand : public Command {
 public:
-    string description = "upload a time series csv file\n";
+
+    explicit uploadCSVCommand(DefaultIO *dio) : Command(dio) {
+        this->description = "upload a time series csv file\n";
+    }
 
     void execute() override {
         // get train csv
@@ -93,7 +96,10 @@ public:
 
 // option 2
 class algorithmSettingsCommand : public Command {
-    string description = "algorithm settings\n";
+public:
+    explicit algorithmSettingsCommand(DefaultIO *dio) : Command(dio) {
+            this->description = "algorithm settings\n";
+    }
 
     void execute() override {
 
@@ -124,7 +130,11 @@ class algorithmSettingsCommand : public Command {
 
 // option 3
 class detectAnomaliesCommand : public Command {
-    string description = "detect anomalies\n";
+public:
+    explicit detectAnomaliesCommand(DefaultIO *dio) : Command(dio) {
+            this->description = "detect anomalies\n";
+    }
+
 
     void initSequencesVec() {
         seqResult result;
@@ -182,7 +192,10 @@ class detectAnomaliesCommand : public Command {
 
 // option 4
 class displayResultsCommand : public Command {
-    string description = "display results\n";
+public:
+    explicit displayResultsCommand(DefaultIO *dio) : Command(dio) {
+            this->description = "display results\n";
+    }
 
     void execute() override {
 
@@ -198,7 +211,10 @@ class displayResultsCommand : public Command {
 
 // option 5
 class uploadAnomaliesCommand : public Command {
-    string description = "upload anomalies and analyze results\n";
+public:
+    explicit uploadAnomaliesCommand(DefaultIO *dio) : Command(dio) {
+            this->description = "upload anomalies and analyze results\n";
+    }
 
     bool isTruePositive(int start, int end) {
         const auto &anomalies = database->result;
@@ -267,7 +283,10 @@ class uploadAnomaliesCommand : public Command {
 
 // option 6
 class exitCommand : public Command {
-    string description = "exit\n";
+public:
+    explicit exitCommand(DefaultIO *dio) : Command(dio) {
+            this->description = "exit\n";
+    }
 
     void execute() override {
         //TODO: exit the program
