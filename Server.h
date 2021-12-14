@@ -53,6 +53,8 @@ public:
 
 // implement on Server.cpp
 class Server {
+    int port;
+    int clientID;
     thread *t; // the thread to run the start() method in
 
     // you may add data members

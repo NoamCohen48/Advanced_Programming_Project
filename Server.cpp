@@ -1,15 +1,21 @@
 
 #include "Server.h"
 
-Server::Server(int port) throw(const char *) {
-
+Server::Server(int port) throw(const char *) : port(port){
 }
 
 void Server::start(ClientHandler &ch) throw(const char *) {
+
+    // Open thread for start.
+    this->t = new thread([&ch](int clientID){
+        ch.handle(clientID);
+    }, 1);
+
 }
 
 void Server::stop() {
     t->join(); // do not delete this!
+    delete(t);
 }
 
 Server::~Server() {
