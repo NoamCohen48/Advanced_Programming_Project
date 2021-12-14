@@ -30,5 +30,5 @@ void SocketIO::write(float f) {
 }
 
 void SocketIO::read(float *f) {
-    *f = 100;
+    *f = 200;
 }

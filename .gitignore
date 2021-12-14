@@ -1,2 +1,4 @@
 /cmake-build-debug-noam/
 /cmake-build-wsl/
+/cmake-build-debug-mingw/
+/cmake-build-debug-visual-studio/
