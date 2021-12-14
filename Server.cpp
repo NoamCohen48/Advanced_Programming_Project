@@ -11,11 +11,11 @@ void temp(){
 void Server::start(ClientHandler &ch) noexcept(false) {
 
     // Open thread for start.
-//    this->t = new thread([&ch](int clientID){
-//        ch.handle(clientID);
-//    }, 1);
+    this->t = new thread([&ch](int clientID){
+        ch.handle(clientID);
+    }, 1);
 
-    this->t = new thread(temp);
+//    this->t = new thread(temp);
 
 }
 
@@ -34,13 +34,13 @@ string SocketIO::read() {
 }
 
 void SocketIO::write(string text) {
-    cout << "you write string" + text << endl;
+    cout << "you write string: " << text << endl;
 }
 
 void SocketIO::write(float f) {
-    cout << "you write float" + to_string(f) << endl;
+    cout << "you write float: " << to_string(f) << endl;
 }
 
 void SocketIO::read(float *f) {
-    *f = 200;
+    *f = 404;
 }
