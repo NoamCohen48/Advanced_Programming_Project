@@ -15,3 +15,19 @@ void Server::stop(){
 Server::~Server() {
 }
 
+// TODO
+string SocketIO::read() {
+    return "hey you reed something";
+}
+
+void SocketIO::write(string text) {
+    cout << "you write string" + text << endl;
+}
+
+void SocketIO::write(float f) {
+    cout << "you write float" + to_string(f) << endl;
+}
+
+void SocketIO::read(float *f) {
+    *f = 100;
+}

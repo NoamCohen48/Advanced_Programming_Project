@@ -8,6 +8,10 @@
 #ifndef SERVER_H_
 #define SERVER_H_
 
+#include <thread>
+#include "commands.h"
+#include "CLI.h"
+
 
 using namespace std;
 
@@ -17,7 +21,20 @@ class ClientHandler{
     virtual void handle(int clientID)=0;
 };
 
+class SocketIO: public DefaultIO{
 
+public:
+    string read() override;
+
+    void write(string text) override;
+
+    void write(float f) override;
+
+    void read(float *f) override;
+
+    ~SocketIO() override = default;
+
+};
 // you can add helper classes here and implement on the cpp file
 
 
@@ -26,6 +43,10 @@ class AnomalyDetectionHandler:public ClientHandler{
 	public:
     virtual void handle(int clientID){
 
+        // Create the socket and start the CLI.
+        SocketIO socket;
+        CLI cli(&socket);
+        cli.start();
     }
 };
 
