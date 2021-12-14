@@ -121,6 +121,7 @@ public:
                 break;
             }
             dio->write("please choose a value between 0 and 1.\n");
+            //dio->read();
         }
     }
 };

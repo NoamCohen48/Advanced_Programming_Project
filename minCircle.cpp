@@ -94,11 +94,11 @@ Circle baseMinCircle(vector<Point *> boundary) {
         return circle;
 
     circle = circleFrom2Points(*boundary[0], *boundary[2]);
-    if (isInside(*boundary[2], circle))
+    if (isInside(*boundary[1], circle))
         return circle;
 
     circle = circleFrom2Points(*boundary[1], *boundary[2]);
-    if (isInside(*boundary[2], circle))
+    if (isInside(*boundary[0], circle))
         return circle;
 
 //    for (int first = 0; first < boundary.size(); ++first) {

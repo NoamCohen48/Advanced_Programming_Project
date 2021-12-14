@@ -42,7 +42,9 @@ public:
     Point(float x, float y) : x(x), y(y) {}
 
     double dist(const Point &other) const {
-        return sqrt(pow(x - other.x, 2) + pow(y - other.y, 2));
+        double dx = (x - other.x) * (x - other.x);
+        double dy = (y - other.y) * (y - other.y);
+        return sqrt(dx + dy);
     }
 };
 
