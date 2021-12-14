@@ -52,7 +52,7 @@ void readMenue(ofstream& out,int serverFD){
 	}
 }
 
-int initClient(int port)throw (const char*){
+int initClient(int port)noexcept(false){
     int serverFD, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
@@ -75,7 +75,7 @@ int initClient(int port)throw (const char*){
     return serverFD;	
 }
 
-void clientSide1(int port,string outputFile)throw (const char*){
+void clientSide1(int port,string outputFile)noexcept(false){
 	int serverFD = initClient(port);
 	ofstream out(outputFile);
 	readMenue(out,serverFD);
@@ -87,7 +87,7 @@ void clientSide1(int port,string outputFile)throw (const char*){
 }
 
 
-void clientSide2(int port,string outputFile)throw (const char*){
+void clientSide2(int port,string outputFile)noexcept(false){
 
 	int serverFD = initClient(port);
 	

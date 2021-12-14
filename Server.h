@@ -60,11 +60,11 @@ class Server {
     // you may add data members
 
 public:
-    Server(int port) throw(const char *);
+    Server(int port) noexcept(false);
 
     virtual ~Server();
 
-    void start(ClientHandler &ch) throw(const char *);
+    void start(ClientHandler &ch) noexcept(false);
 
     void stop();
 };

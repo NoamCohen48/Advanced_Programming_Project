@@ -1,15 +1,21 @@
 
 #include "Server.h"
 
-Server::Server(int port) throw(const char *) : port(port){
+Server::Server(int port) noexcept(false) : port(port){
 }
 
-void Server::start(ClientHandler &ch) throw(const char *) {
+void temp(){
+    cout<< "helo";
+}
+
+void Server::start(ClientHandler &ch) noexcept(false) {
 
     // Open thread for start.
-    this->t = new thread([&ch](int clientID){
-        ch.handle(clientID);
-    }, 1);
+//    this->t = new thread([&ch](int clientID){
+//        ch.handle(clientID);
+//    }, 1);
+
+    this->t = new thread(temp);
 
 }
 
