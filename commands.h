@@ -53,6 +53,9 @@ struct Database {
     vector<AnomalyReport> result;
     vector<seqResult> seqResults;
     int numOfRows;
+
+    Database() : threshold(HybridAnomalyDetector().getPearsonThreshold()) {
+    }
 };
 
 class Command {
@@ -100,28 +103,24 @@ public:
 
         float wantedThreshold;
 
-        // Get the pearson threshold.
-        double pearsonThreshold = (new HybridAnomalyDetector())->getPearsonThreshold();
-
         while (true) {
 
             // Write to the client.
             dio->write("The current correlation threshold is ");
-            dio->write(pearsonThreshold);
+            dio->write(database.threshold);
             dio->write("\nType a new threshold\n");
 
             // Get wanted threshold from the client.
             dio->read(&wantedThreshold);
 
             // Check if the Threshold is between 0 and 1.
-            if (wantedThreshold >= 0 && wantedThreshold <= 1) {
+            if (wantedThreshold > 0 && wantedThreshold <= 1) {
 
                 // save the new threshold.
                 database.threshold = wantedThreshold;
                 break;
             }
             dio->write("please choose a value between 0 and 1.\n");
-            //dio->read();
         }
     }
 };
@@ -199,7 +198,7 @@ public:
 
         // Run through lines in the result vector and write them.
         for (const auto &line: database.result) {
-            dio->write(to_string(line.timeStep) + "\t" + line.description + "\n");
+            dio->write(to_string(line.timeStep) + " \t" + line.description + "\n");
         }
 
         // Write done.
@@ -239,6 +238,11 @@ public:
 
         dio->write("Please upload your local anomalies file.\n");
 
+        // resetting the flag
+        for (auto &result: database.seqResults) {
+            result.truePositive = false;
+        }
+
         // Run through the received lines from the client.
         while ((clientLine = dio->read()) != "done") {
 
@@ -255,14 +259,14 @@ public:
             }
 
             // Summering the table length.
-            sum = end - start + 1;
+            sum += end - start + 1;
             positive++;
         }
 
         // Calculate the FP.
-        for (auto &line: database.seqResults) {
+        for (auto &result: database.seqResults) {
 
-            if (!line.truePositive) {
+            if (!result.truePositive) {
                 falsePositive++;
             }
         }
