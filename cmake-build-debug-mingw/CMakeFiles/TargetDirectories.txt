@@ -1,0 +1,3 @@
+D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/CMakeFiles/Project2.dir
+D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+D:/OneDrive - Bar-Ilan University/C++ Projects/Advanced_Programming_Project/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir

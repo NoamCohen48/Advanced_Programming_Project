@@ -11,4 +11,6 @@ add_executable(Project2
         minCircle.cpp minCircle.h
         HybridAnomalyDetector.cpp HybridAnomalyDetector.h
         CLI.cpp CLI.h
-        commands.h)
+        commands.h
+        Server.cpp
+        Server.h)
