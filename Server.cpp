@@ -1,21 +1,22 @@
 
 #include "Server.h"
 
-Server::Server(int port)throw (const char*) {
+Server::Server(int port) throw(const char *) {
 
 }
 
-void Server::start(ClientHandler& ch)throw(const char*){	
+void Server::start(ClientHandler &ch) throw(const char *) {
 }
 
-void Server::stop(){
-	t->join(); // do not delete this!
+void Server::stop() {
+    t->join(); // do not delete this!
 }
 
 Server::~Server() {
 }
 
-// TODO
+// TODO: finish socket IO
+
 string SocketIO::read() {
     return "hey you reed something";
 }

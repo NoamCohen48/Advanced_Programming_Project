@@ -16,13 +16,13 @@
 using namespace std;
 
 // edit your ClientHandler interface here:
-class ClientHandler{
-    public:
-    virtual void handle(int clientID)=0;
+class ClientHandler {
+public:
+    virtual void handle(int clientID) = 0;
 };
 
-class SocketIO: public DefaultIO{
 
+class SocketIO : public DefaultIO {
 public:
     string read() override;
 
@@ -39,9 +39,9 @@ public:
 
 
 // edit your AnomalyDetectionHandler class here
-class AnomalyDetectionHandler:public ClientHandler{
-	public:
-    virtual void handle(int clientID){
+class AnomalyDetectionHandler : public ClientHandler {
+public:
+    virtual void handle(int clientID) {
 
         // Create the socket and start the CLI.
         SocketIO socket;
@@ -53,15 +53,18 @@ class AnomalyDetectionHandler:public ClientHandler{
 
 // implement on Server.cpp
 class Server {
-	thread* t; // the thread to run the start() method in
+    thread *t; // the thread to run the start() method in
 
-	// you may add data members
+    // you may add data members
 
 public:
-	Server(int port) throw (const char*);
-	virtual ~Server();
-	void start(ClientHandler& ch)throw(const char*);
-	void stop();
+    Server(int port) throw(const char *);
+
+    virtual ~Server();
+
+    void start(ClientHandler &ch) throw(const char *);
+
+    void stop();
 };
 
 #endif /* SERVER_H_ */
