@@ -9,6 +9,11 @@
 #define SERVER_H_
 
 #include <thread>
+#include <pthread.h>
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+
 #include "commands.h"
 #include "CLI.h"
 
@@ -24,6 +29,8 @@ public:
 
 class SocketIO : public DefaultIO {
 public:
+    SocketIO();
+
     string read() override;
 
     void write(string text) override;
@@ -60,7 +67,7 @@ class Server {
     // you may add data members
 
 public:
-    Server(int port) noexcept(false);
+    explicit Server(int port) noexcept(false);
 
     virtual ~Server();
 
