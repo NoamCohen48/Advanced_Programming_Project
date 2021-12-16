@@ -71,6 +71,16 @@ public:
     string description;
 };
 
+void removeEndLine(string txt) {
+
+    // Check if there is "\n" in txt.
+    if (!txt.empty() && txt[txt.length()-1] == '\n') {
+
+        // remove it.
+        txt.erase(txt.length()-1);
+    }
+}
+
 // option 1
 class uploadCSVCommand : public Command {
 public:
