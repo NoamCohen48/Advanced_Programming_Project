@@ -3,19 +3,18 @@
 
 Server::Server(int port) noexcept(false): port(port) {
     // creating the socket
-    int sockID = socket(AF_INET, SOCK_STREAM, 0);
+    sockID = socket(AF_INET, SOCK_STREAM, 0);
     if (sockID < 0) {
         throw ("cannot open socket");
     }
 
     // creating the struct to hold info
-    sockaddr_in serv;
-    serv.sin_family = AF_INET;
-    serv.sin_addr.s_addr = INADDR_ANY;
-    serv.sin_port = port;
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    serverAddr.sin_port = htons(port);
 
     // binding the socket
-    int isBindError = bind(sockID, (struct sockaddr *) &serv, sizeof(serv));
+    int isBindError = bind(sockID, (struct sockaddr *) &serverAddr, sizeof(serverAddr));
     if (isBindError == -1) {
         throw ("cannot bind socket");
     }
@@ -26,26 +25,38 @@ Server::Server(int port) noexcept(false): port(port) {
         throw ("cannot listen");
     }
 
-
+    isStopped = false;
 }
 
-void temp() {
-    cout << "helo";
+
+void sigHandler(int sigNum) {
+    cout << "sidH" << endl;
 }
+
 
 void Server::start(ClientHandler &ch) noexcept(false) {
-
-
     // Open thread for start.
-    this->t = new thread([&ch](int clientID) {
-        ch.handle(clientID);
-    }, 1);
+    this->t = new thread([&ch, this]() {
+        signal(SIGALRM, sigHandler);
+        while (!isStopped) {
+            // trying to accept a connection
+            socklen_t socketIDLen = sizeof(sockID);
 
-//    this->t = new thread(temp);
-
+            alarm(1);
+            int clientID = accept(sockID, (struct sockaddr *) &clientAddr, &socketIDLen);
+            if (clientID > 0) {
+                ch.handle(clientID);
+                close(clientID);
+            }
+            alarm(0);
+        }
+    });
 }
 
+
 void Server::stop() {
+    isStopped = true;
+    close(sockID);
     t->join(); // do not delete this!
 }
 
@@ -53,24 +64,36 @@ Server::~Server() {
     delete (t);
 }
 
-// TODO: finish socket IO
 
 string SocketIO::read() {
-    return "hey you reed something";
+    // reading a char every time
+    char buffer = 0;
+    string result;
+
+    // reading first
+    //recv(clientID, &buffer, sizeof(char), 0);
+    while (buffer != '\n') {
+        recv(clientID, &buffer, sizeof(char), 0);
+        result += buffer;
+    }
+
+    return result;
 }
 
 void SocketIO::write(string text) {
-    cout << "you write string: " << text << endl;
+    send(clientID, text.c_str(), text.size(), 0);
 }
 
 void SocketIO::write(float f) {
-    cout << "you write float: " << to_string(f) << endl;
+    string text = to_string(f);
+    write(text);
 }
 
 void SocketIO::read(float *f) {
-    *f = 404;
+    // reading the line
+    //string text = read();
+
+    // converting the line to float and inserting into pointer
+    //*f = stof(text);
 }
 
-SocketIO::SocketIO() {
-
-}

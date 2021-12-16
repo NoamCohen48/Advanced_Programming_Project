@@ -33,8 +33,8 @@ public:
     void readFile(const string &filePath) {
         ofstream file(filePath);
         string line = read();
-        while (line != "done") {
-            file << line + '\n';
+        while (line != "done\n") {
+            file << line;
             line = read();
         }
         file.close();
@@ -251,7 +251,8 @@ public:
             int start = stoi(startStr);
 
             // Get the end time.
-            int end = stoi(clientLine.erase(0, startStr.size() + 1));
+            string endStr = clientLine.erase(0, startStr.size() + 1); // +\n
+            int end = stoi(endStr.erase(endStr.size()-1, endStr.size()));
 
             // Check if the received in the range.
             if (isTruePositive(start, end, database)) {

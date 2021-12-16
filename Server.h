@@ -13,6 +13,19 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <unistd.h>
+
+#include <pthread.h>
+#include <thread>
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include<signal.h>
+#include <sstream>
+
 
 #include "commands.h"
 #include "CLI.h"
@@ -28,8 +41,10 @@ public:
 
 
 class SocketIO : public DefaultIO {
+    int clientID;
 public:
-    SocketIO();
+    explicit SocketIO(int clientID) : clientID(clientID) {
+    }
 
     string read() override;
 
@@ -51,7 +66,7 @@ public:
     virtual void handle(int clientID) {
 
         // Create the socket and start the CLI.
-        SocketIO socket;
+        SocketIO socket(clientID);
         CLI cli(&socket);
         cli.start();
     }
@@ -61,7 +76,10 @@ public:
 // implement on Server.cpp
 class Server {
     int port;
-    int clientID;
+    int sockID;
+    bool isStopped;
+    sockaddr_in serverAddr;
+    sockaddr_in clientAddr;
     thread *t; // the thread to run the start() method in
 
     // you may add data members
