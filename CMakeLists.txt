@@ -15,7 +15,8 @@ add_executable(Project2
         CLI.cpp CLI.h
         commands.h
         Server.cpp
-        Server.h)
+        Server.h
+        AnomalyDetector.h)
 
 set(GCC_COVERAGE_COMPILE_FLAGS "-pthread")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )

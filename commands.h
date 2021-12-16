@@ -17,6 +17,7 @@
 
 using namespace std;
 
+
 class DefaultIO {
 public:
     virtual string read() = 0;
@@ -33,8 +34,8 @@ public:
     void readFile(const string &filePath) {
         ofstream file(filePath);
         string line = read();
-        while (line != "done\n") {
-            file << line;
+        while (line != "done") {
+            file << line + '\n';
             line = read();
         }
         file.close();
@@ -71,16 +72,6 @@ public:
     string description;
 };
 
-void removeEndLine(string txt) {
-
-    // Check if there is "\n" in txt.
-    if (!txt.empty() && txt[txt.length()-1] == '\n') {
-
-        // remove it.
-        txt.erase(txt.length()-1);
-    }
-}
-
 // option 1
 class uploadCSVCommand : public Command {
 public:
@@ -110,7 +101,6 @@ public:
     }
 
     void execute(Database &database) override {
-
         float wantedThreshold;
 
         while (true) {
@@ -262,7 +252,8 @@ public:
 
             // Get the end time.
             string endStr = clientLine.erase(0, startStr.size() + 1); // +\n
-            int end = stoi(endStr.erase(endStr.size()-1, endStr.size()));
+            //int end = stoi(endStr.erase(endStr.size() - 1, endStr.size()));
+            int end = stoi(endStr);
 
             // Check if the received in the range.
             if (isTruePositive(start, end, database)) {

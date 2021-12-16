@@ -148,8 +148,11 @@ size_t check(string outputFile, string expectedOutputFile) {
     return i;
 }
 
-
 int main() {
+    //string s = "hello\n";
+    //removeNewLine(s);
+
+
     srand(time(NULL));
     int port = 5000 + rand() % 1000;
     string outputFile1 = "output_menu";

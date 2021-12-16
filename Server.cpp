@@ -37,18 +37,27 @@ void sigHandler(int sigNum) {
 void Server::start(ClientHandler &ch) noexcept(false) {
     // Open thread for start.
     this->t = new thread([&ch, this]() {
-        signal(SIGALRM, sigHandler);
         while (!isStopped) {
+
             // trying to accept a connection
             socklen_t socketIDLen = sizeof(sockID);
 
-            alarm(1);
-            int clientID = accept(sockID, (struct sockaddr *) &clientAddr, &socketIDLen);
-            if (clientID > 0) {
+            // building the select
+            fd_set rfds;
+            FD_ZERO(&rfds);
+            FD_SET(sockID, &rfds);
+
+            timeval tv;
+            tv.tv_sec = 1;
+            tv.tv_usec = 0;
+
+            int recVal = select(sockID + 1, &rfds, NULL, NULL, &tv);
+
+            if (recVal > 0) {
+                int clientID = accept(sockID, (struct sockaddr *) &clientAddr, &socketIDLen);
                 ch.handle(clientID);
                 close(clientID);
             }
-            alarm(0);
         }
     });
 }
@@ -71,10 +80,11 @@ string SocketIO::read() {
     string result;
 
     // reading first
-    //recv(clientID, &buffer, sizeof(char), 0);
+    recv(clientID, &buffer, sizeof(char), 0);
     while (buffer != '\n') {
-        recv(clientID, &buffer, sizeof(char), 0);
+        //recv(clientID, &buffer, sizeof(char), 0);
         result += buffer;
+        recv(clientID, &buffer, sizeof(char), 0);
     }
 
     return result;
@@ -85,8 +95,9 @@ void SocketIO::write(string text) {
 }
 
 void SocketIO::write(float f) {
-    string text = to_string(f);
-    write(text);
+    stringstream basicStringstream;
+    basicStringstream << f;
+    write(basicStringstream.str());
 }
 
 void SocketIO::read(float *f) {

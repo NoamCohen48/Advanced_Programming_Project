@@ -15,19 +15,13 @@
 #include <netinet/in.h>
 #include <unistd.h>
 
-#include <pthread.h>
-#include <thread>
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include<signal.h>
+#include <signal.h>
 #include <sstream>
 
-
-#include "commands.h"
 #include "CLI.h"
 
 

@@ -34,7 +34,7 @@ void CLI::start() {
         string input = dio->read();
 
         // Get the next command from the user.
-        nextCommand = stoi(input) - 1;
+        nextCommand = input[0] - '0' - 1;
 
         // Check if the command valid.
         if (nextCommand >= 0 && nextCommand < commands.size()) {
