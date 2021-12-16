@@ -102,9 +102,9 @@ void SocketIO::write(float f) {
 
 void SocketIO::read(float *f) {
     // reading the line
-    //string text = read();
+    string text = read();
 
     // converting the line to float and inserting into pointer
-    //*f = stof(text);
+    *f = stof(text);
 }
 
